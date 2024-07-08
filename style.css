@@ -866,4 +866,11 @@ footer{
         grid-column: span 1 !important;
         grid-row: span 1 !important;
     }
+
+    .main-footer .box p{
+        padding-bottom: 20px;
+    }
+    .main-footer .box ul{
+        padding-bottom: 20px;
+    }
 }
