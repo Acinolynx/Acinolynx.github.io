@@ -366,6 +366,20 @@ footer{
     font-size: 21px;
 }
 
+::-webkit-scrollbar{
+    width: 10px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-track{
+    background-color: #1b1b1b;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #f7f7f7;
+    border-radius: 10px;
+}
+
 
 @media (max-width: 450px) {
 
@@ -412,5 +426,7 @@ footer{
     .main-footer .box ul{
         padding-bottom: 20px;
     }
+
+    
     
 }
