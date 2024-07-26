@@ -834,6 +834,12 @@ footer {
         text-decoration: none;
     }
 
+    .contact ul li a {
+        font-size: 16px;
+        color: #333333;
+        text-decoration: none;
+    }
+
     .contact .box-r {
         width: 100%;
         display: flex;
