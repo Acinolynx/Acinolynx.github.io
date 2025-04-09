@@ -1,971 +1,1515 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style_gallery.css" />
+    <title>Acinolynx - Gallery</title>
+    <!-- Ganti dengan nama Anda jika berbeda -->
+    <link rel="icon" href="Asset/Home/aperture-svgrepo-com.svg" />
+    <!-- Asumsi path ini benar atau perlu disesuaikan -->
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <!-- Hapus link ke style.css -->
+    <link rel="stylesheet" href="gallery-style.css" />
+    <!-- Link ke CSS Galeri -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Kembali ke Rubik -->
     <link
       href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
       rel="stylesheet"
     />
-    <title>Acinolynx - Gallery</title>
-    <link rel="icon" href="./Asset/aperture-svgrepo-com.svg" />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   </head>
-
   <body>
+    <!-- Navbar from old Gallery.html -->
     <nav class="navbar" data-aos="slide-down" data-aos-duration="1000">
       <div class="container">
         <div class="logo">
           <a href="./index.html">Acinolynx</a>
         </div>
+        <!-- Logo di navbar 
         <ul>
           <li><a href="./index.html">Home</a></li>
+
           <li class="dropdown">
-            <a href="#" class="dropdown-button"
+            <a href="#photography-section" class="dropdown-button"
               >Photography <i class="fa fa-caret-down"></i
             ></a>
             <div class="dropdown-content">
-              <a href="#landscape">Landscape</a>
-              <a href="#portrait">Portrait</a>
-              <a href="#street">Street</a>
-              <a href="#random">Random</a>
+              <a href="#filter=photography&sub=landscape">Landscape</a>
+
+              <a href="#filter=photography&sub=portrait">Portrait</a>
+              <a href="#filter=photography&sub=street">Street</a>
+              <a href="#filter=photography&sub=random">Random</a>
             </div>
           </li>
-          <li><a href="#design">Graphic Design</a></li>
-          <li><a href="#video">Video</a></li>
-          <li><a href="#game">Game</a></li>
+          <li><a href="#filter=design">Graphic Design</a></li>
+
+          <li><a href="#filter=video">Video</a></li>
+          <li><a href="#filter=game">Game</a></li>
         </ul>
+        -->
       </div>
     </nav>
 
-    <div class="photo">
-      <div class="heading" id="photo" data-aos="fade" data-aos-duration="1000">
-        <h1>Photography</h1>
-      </div>
-      <div
-        class="subheading"
-        id="landscape"
-        data-aos="fade"
-        data-aos-duration="1000"
-      >
-        <h4>Landscape</h4>
+    <!-- Konten utama galeri -->
+    <main id="gallery-page">
+      <div class="heading" data-aos="fade" data-aos-duration="1000">
+        <h1>Gallery</h1>
+        <!-- Judul utama galeri -->
       </div>
 
-      <div class="box">
-        <div class="image" data-category="landscape">
+      <div class="filter-buttons">
+        <button
+          class="filter-btn active"
+          data-filter="all"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          All
+        </button>
+        <button
+          class="filter-btn"
+          data-filter="photography"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          Photography
+        </button>
+        <button
+          class="filter-btn"
+          data-filter="design"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
+          Graphic Design
+        </button>
+        <button
+          class="filter-btn"
+          data-filter="video"
+          data-aos="fade-up"
+          data-aos-delay="400"
+        >
+          Video Editing
+        </button>
+        <button
+          class="filter-btn"
+          data-filter="game"
+          data-aos="fade-up"
+          data-aos-delay="500"
+        >
+          Game
+        </button>
+      </div>
+
+      <div class="gallery-grid" data-aos="fade-up" data-aos-duration="1000">
+        <!-- Item Galeri -->
+        <!-- Nature/Landscape-->
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Nature/1.webp"
+          data-title="Nature/Landscape"
+          data-aos="fade-up"
+        >
           <img
-            src="./Asset/Gallery/Compress/landscape1.png"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
+            src="Asset/Gallery/Photography/Nature/1.webp"
+            alt="photography 1"
             loading="lazy"
           />
-          <img
-            src="./Asset/Gallery/Compress/landscape4.png"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
-          />
-          <img
-            src="./Asset/Gallery/Compress/landscape7.png"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
-          />
-          <img
-            src="./Asset/Gallery/Compress/landscape10.png"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
-          />
-          <img
-            src="./Asset/Gallery/Compress/landscape13.jpeg"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
-          />
+          <div class="overlay">More Detail</div>
         </div>
-
-        <div class="image">
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Nature/2.webp"
+          data-title="Nature/Landscape"
+          data-aos="fade-up"
+        >
           <img
-            src="./Asset/Gallery/Compress/landscape2.png"
-            data-aos="zoom-in"
-            data-aos-duration="2000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/landscape5.png"
-            data-aos="zoom-in"
-            data-aos-duration="2000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/landscape8.png"
-            data-aos="zoom-in"
-            data-aos-duration="2000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/landscape11.png"
-            data-aos="zoom-in"
-            data-aos-duration="2000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/landscape14.jpeg"
-            data-aos="zoom-in"
-            data-aos-duration="2000"
-          />
-        </div>
-
-        <div class="image">
-          <img
-            src="./Asset/Gallery/Compress/landscape3.png"
-            data-aos="zoom-in"
-            data-aos-duration="3000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/landscape6.png"
-            data-aos="zoom-in"
-            data-aos-duration="3000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/landscape9.png"
-            data-aos="zoom-in"
-            data-aos-duration="3000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/landscape12.png"
-            data-aos="zoom-in"
-            data-aos-duration="3000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/landscape15.png"
-            data-aos="zoom-in"
-            data-aos-duration="3000"
-          />
-        </div>
-      </div>
-
-      <div class="subheading" id="portrait" data-aos="fade">
-        <h4>Portrait</h4>
-      </div>
-
-      <div class="box">
-        <div class="image" data-category="portrait">
-          <img
-            src="./Asset/Gallery/Compress/portrait1.jpg"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
+            src="Asset/Gallery/Photography/Nature/2.webp"
+            alt="photography 1"
             loading="lazy"
           />
-          <img
-            src="./Asset/Gallery/Compress/portrait4.jpg"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
-          />
-          <img
-            src="./Asset/Gallery/Compress/portrait7.png"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
-          />
-          <img
-            src="./Asset/Gallery/Compress/portrait10.png"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
-          />
-          <img
-            src="./Asset/Gallery/Compress/portrait13.jpg"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
-          />
-          <img
-            src="./Asset/Gallery/Compress/portrait16.jpg"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
-          />
-          <img
-            src="./Asset/Gallery/Compress/portrait19.jpg"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
-          />
-          <img
-            src="./Asset/Gallery/Compress/portrait22.jpg"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
-          />
-          <img
-            src="./Asset/Gallery/Compress/portrait25.jpg"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
-          />
-          <img
-            src="./Asset/Gallery/Compress/portrait28.png"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
-          />
-          <img
-            src="./Asset/Gallery/Compress/portrait31.jpg"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
-          />
+          <div class="overlay">More Detail</div>
         </div>
-
-        <div class="image">
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Nature/4.webp"
+          data-title="Nature/Landscape"
+          data-aos="fade-up"
+        >
           <img
-            src="./Asset/Gallery/Compress/portrait2.jpg"
-            data-aos="zoom-in"
-            data-aos-duration="2000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/portrait5.jpg"
-            data-aos="zoom-in"
-            data-aos-duration="2000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/portrait8.png"
-            data-aos="zoom-in"
-            data-aos-duration="2000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/portrait11.png"
-            data-aos="zoom-in"
-            data-aos-duration="2000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/portrait14.jpg"
-            data-aos="zoom-in"
-            data-aos-duration="2000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/portrait17.jpg"
-            data-aos="zoom-in"
-            data-aos-duration="2000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/portrait20.jpg"
-            data-aos="zoom-in"
-            data-aos-duration="2000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/portrait23.jpg"
-            data-aos="zoom-in"
-            data-aos-duration="2000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/portrait26.jpg"
-            data-aos="zoom-in"
-            data-aos-duration="2000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/portrait29.png"
-            data-aos="zoom-in"
-            data-aos-duration="2000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/portrait32.png"
-            data-aos="zoom-in"
-            data-aos-duration="2000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/portrait33.png"
-            data-aos="zoom-in"
-            data-aos-duration="2000"
-          />
-        </div>
-
-        <div class="image">
-          <img
-            src="./Asset/Gallery/Compress/portrait3.jpg"
-            data-aos="zoom-in"
-            data-aos-duration="3000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/portrait6.png"
-            data-aos="zoom-in"
-            data-aos-duration="3000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/portrait9.png"
-            data-aos="zoom-in"
-            data-aos-duration="3000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/portrait12.jpg"
-            data-aos="zoom-in"
-            data-aos-duration="3000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/portrait15.jpg"
-            data-aos="zoom-in"
-            data-aos-duration="3000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/portrait18.jpg"
-            data-aos="zoom-in"
-            data-aos-duration="3000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/portrait21.jpg"
-            data-aos="zoom-in"
-            data-aos-duration="3000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/portrait24.jpg"
-            data-aos="zoom-in"
-            data-aos-duration="3000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/portrait27.png"
-            data-aos="zoom-in"
-            data-aos-duration="3000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/portrait29.png"
-            data-aos="zoom-in"
-            data-aos-duration="3000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/portrait30.png"
-            data-aos="zoom-in"
-            data-aos-duration="3000"
-          />
-        </div>
-      </div>
-
-      <div class="subheading" id="street" data-aos="fade">
-        <h4>Street Photo</h4>
-      </div>
-
-      <div class="box">
-        <div class="image" data-category="street">
-          <img
-            src="./Asset/Gallery/Compress/street1.png"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
+            src="Asset/Gallery/Photography/Nature/4.webp"
+            alt="photography 1"
             loading="lazy"
           />
-          <img
-            src="./Asset/Gallery/Compress/street4.png"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
-          />
-          <img
-            src="./Asset/Gallery/Compress/street7.png"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
-          />
-          <img
-            src="./Asset/Gallery/Compress/street10.jpeg"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
-          />
-          <img
-            src="./Asset/Gallery/Compress/street13.jpeg"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
-          />
-          <img
-            src="./Asset/Gallery/Compress/street16.jpeg"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
-          />
+          <div class="overlay">More Detail</div>
         </div>
-
-        <div class="image">
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Nature/5.webp"
+          data-title="Nature/Landscape"
+          data-aos="fade-up"
+        >
           <img
-            src="./Asset/Gallery/Compress/street2.png"
-            data-aos="zoom-in"
-            data-aos-duration="2000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/street5.png"
-            data-aos="zoom-in"
-            data-aos-duration="2000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/street8.jpeg"
-            data-aos="zoom-in"
-            data-aos-duration="2000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/street11.jpeg"
-            data-aos="zoom-in"
-            data-aos-duration="2000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/street14.jpeg"
-            data-aos="zoom-in"
-            data-aos-duration="2000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/street17.jpeg"
-            data-aos="zoom-in"
-            data-aos-duration="2000"
-          />
-        </div>
-
-        <div class="image">
-          <img
-            src="./Asset/Gallery/Compress/street3.png"
-            data-aos="zoom-in"
-            data-aos-duration="3000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/street6.png"
-            data-aos="zoom-in"
-            data-aos-duration="3000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/street9.jpeg"
-            data-aos="zoom-in"
-            data-aos-duration="3000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/street12.jpeg"
-            data-aos="zoom-in"
-            data-aos-duration="3000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/street15.jpeg"
-            data-aos="zoom-in"
-            data-aos-duration="3000"
-          />
-        </div>
-      </div>
-
-      <div class="subheading" id="random" data-aos="fade">
-        <h4>Random Photo</h4>
-      </div>
-
-      <div class="box">
-        <div class="image" data-category="random">
-          <img
-            src="./Asset/Gallery/Compress/random (1).jpg"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
+            src="Asset/Gallery/Photography/Nature/5.webp"
+            alt="photography 1"
             loading="lazy"
           />
-          <img
-            src="./Asset/Gallery/Compress/random (4).jpg"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
-          />
-          <img
-            src="./Asset/Gallery/Compress/random (7).jpg"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
-          />
-          <img
-            src="./Asset/Gallery/Compress/random (10).jpg"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
-          />
-          <img
-            src="./Asset/Gallery/Compress/random (13).jpg"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
-          />
-          <img
-            src="./Asset/Gallery/Compress/random (16).jpg"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
-          />
-          <img
-            src="./Asset/Gallery/Compress/random (19).jpg"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
-          />
-          <img
-            src="./Asset/Gallery/Compress/random (22).jpg"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
-          />
-          <img
-            src="./Asset/Gallery/Compress/random (25).jpg"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
-          />
-          <img
-            src="./Asset/Gallery/Compress/random (28).jpg"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
-          />
+          <div class="overlay">More Detail</div>
         </div>
-
-        <div class="image">
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Nature/6.webp"
+          data-title="Nature/Landscape"
+          data-aos="fade-up"
+        >
           <img
-            src="./Asset/Gallery/Compress/random (2).jpg"
-            data-aos="zoom-in"
-            data-aos-duration="2000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/random (5).jpg"
-            data-aos="zoom-in"
-            data-aos-duration="2000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/random (8).jpg"
-            data-aos="zoom-in"
-            data-aos-duration="2000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/random (11).jpg"
-            data-aos="zoom-in"
-            data-aos-duration="2000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/random (14).jpg"
-            data-aos="zoom-in"
-            data-aos-duration="2000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/random (17).jpg"
-            data-aos="zoom-in"
-            data-aos-duration="2000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/random (20).jpg"
-            data-aos="zoom-in"
-            data-aos-duration="2000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/random (23).jpg"
-            data-aos="zoom-in"
-            data-aos-duration="2000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/random (26).jpg"
-            data-aos="zoom-in"
-            data-aos-duration="2000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/random29.png"
-            data-aos="zoom-in"
-            data-aos-duration="2000"
-          />
-        </div>
-
-        <div class="image">
-          <img
-            src="./Asset/Gallery/Compress/random (3).jpg"
-            data-aos="zoom-in"
-            data-aos-duration="3000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/random (6).jpg"
-            data-aos="zoom-in"
-            data-aos-duration="3000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/random (9).jpg"
-            data-aos="zoom-in"
-            data-aos-duration="3000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/random (12).jpg"
-            data-aos="zoom-in"
-            data-aos-duration="3000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/random (15).jpg"
-            data-aos="zoom-in"
-            data-aos-duration="3000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/random (18).jpg"
-            data-aos="zoom-in"
-            data-aos-duration="3000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/random (21).jpg"
-            data-aos="zoom-in"
-            data-aos-duration="3000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/random (24).jpg"
-            data-aos="zoom-in"
-            data-aos-duration="3000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/random (27).jpg"
-            data-aos="zoom-in"
-            data-aos-duration="3000"
-          />
-          <img
-            src="./Asset/Gallery/Compress/random30.png"
-            data-aos="zoom-in"
-            data-aos-duration="3000"
-          />
-        </div>
-      </div>
-
-      <div class="heading" id="design" data-aos="fade">
-        <h1>Graphic Design</h1>
-      </div>
-
-      <div class="box">
-        <div class="image" data-category="design">
-          <img
-            src="./Asset/Gallery/Design/1.png"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
+            src="Asset/Gallery/Photography/Nature/6.webp"
+            alt="photography 1"
             loading="lazy"
           />
-          <img
-            src="./Asset/Gallery/Design/4.png"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
-          />
-          <img
-            src="./Asset/Gallery/Design/7.png"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
-          />
-          <img
-            src="./Asset/Gallery/Design/10.png"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
-          />
-          <img
-            src="./Asset/Gallery/Design/13.png"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
-          />
-          <img
-            src="./Asset/Gallery/Design/16.png"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
-          />
-          <img
-            src="./Asset/Gallery/Design/19.png"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
-          />
-          <img
-            src="./Asset/Gallery/Design/22.png"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
-          />
-          <img
-            src="./Asset/Gallery/Design/25.png"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
-          />
-          <img
-            src="./Asset/Gallery/Design/28.png"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
-          />
-          <img
-            src="./Asset/Gallery/Design/31.jpg"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
-          />
-          <img
-            src="./Asset/Gallery/Design/34.png"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
-          />
+          <div class="overlay">More Detail</div>
         </div>
-
-        <div class="image">
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Nature/7.webp"
+          data-title="Nature/Landscape"
+          data-aos="fade-up"
+        >
           <img
-            src="./Asset/Gallery/Design/2.png"
-            data-aos="zoom-in"
-            data-aos-duration="2000"
-          />
-          <img
-            src="./Asset/Gallery/Design/5.png"
-            data-aos="zoom-in"
-            data-aos-duration="2000"
-          />
-          <img
-            src="./Asset/Gallery/Design/8.png"
-            data-aos="zoom-in"
-            data-aos-duration="2000"
-          />
-          <img
-            src="./Asset/Gallery/Design/11.png"
-            data-aos="zoom-in"
-            data-aos-duration="2000"
-          />
-          <img
-            src="./Asset/Gallery/Design/14.png"
-            data-aos="zoom-in"
-            data-aos-duration="2000"
-          />
-          <img
-            src="./Asset/Gallery/Design/17.png"
-            data-aos="zoom-in"
-            data-aos-duration="2000"
-          />
-          <img
-            src="./Asset/Gallery/Design/20.png"
-            data-aos="zoom-in"
-            data-aos-duration="2000"
-          />
-          <img
-            src="./Asset/Gallery/Design/23.png"
-            data-aos="zoom-in"
-            data-aos-duration="2000"
-          />
-          <img
-            src="./Asset/Gallery/Design/26.png"
-            data-aos="zoom-in"
-            data-aos-duration="2000"
-          />
-          <img
-            src="./Asset/Gallery/Design/29.png"
-            data-aos="zoom-in"
-            data-aos-duration="2000"
-          />
-          <img
-            src="./Asset/Gallery/Design/32.png"
-            data-aos="zoom-in"
-            data-aos-duration="2000"
-          />
-        </div>
-
-        <div class="image">
-          <img
-            src="./Asset/Gallery/Design/3.png"
-            data-aos="zoom-in"
-            data-aos-duration="3000"
-          />
-          <img
-            src="./Asset/Gallery/Design/6.png"
-            data-aos="zoom-in"
-            data-aos-duration="3000"
-          />
-          <img
-            src="./Asset/Gallery/Design/9.png"
-            data-aos="zoom-in"
-            data-aos-duration="3000"
-          />
-          <img
-            src="./Asset/Gallery/Design/12.png"
-            data-aos="zoom-in"
-            data-aos-duration="3000"
-          />
-          <img
-            src="./Asset/Gallery/Design/15.png"
-            data-aos="zoom-in"
-            data-aos-duration="3000"
-          />
-          <img
-            src="./Asset/Gallery/Design/18.png"
-            data-aos="zoom-in"
-            data-aos-duration="3000"
-          />
-          <img
-            src="./Asset/Gallery/Design/21.png"
-            data-aos="zoom-in"
-            data-aos-duration="3000"
-          />
-          <img
-            src="./Asset/Gallery/Design/24.png"
-            data-aos="zoom-in"
-            data-aos-duration="3000"
-          />
-          <img
-            src="./Asset/Gallery/Design/27.png"
-            data-aos="zoom-in"
-            data-aos-duration="3000"
-          />
-          <img
-            src="./Asset/Gallery/Design/30.png"
-            data-aos="zoom-in"
-            data-aos-duration="3000"
-          />
-          <img
-            src="./Asset/Gallery/Design/33.png"
-            data-aos="zoom-in"
-            data-aos-duration="3000"
-          />
-        </div>
-      </div>
-
-      <div class="heading" id="video" data-aos="fade">
-        <h1>Video</h1>
-      </div>
-
-      <div class="box">
-        <div class="image" data-category="video">
-          <video
-            style="margin-top: 30px"
-            width="100%"
-            height="100%"
-            controls
-            data-aos="zoom-in"
-            data-aos-duration="1500"
+            src="Asset/Gallery/Photography/Nature/7.webp"
+            alt="photography 1"
             loading="lazy"
-          >
-            <source src="./Asset/Gallery/Video/A Fishermen's Life.mp4" />
-          </video>
-
-          <video
-            style="margin-top: 30px"
-            width="100%"
-            height="100%"
-            controls
-            data-aos="zoom-in"
-            data-aos-duration="3000"
-          >
-            <source src="./Asset/Gallery/Video/sinematik.mp4" />
-          </video>
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Nature8.webp"
+          data-title="Nature/Landscape"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Nature/8.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Nature/9.webp"
+          data-title="Nature/Landscape"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Nature/9.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Nature/10.webp"
+          data-title="Nature/Landscape"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Nature/10.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Nature/11.webp"
+          data-title="Nature/Landscape"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Nature/11.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Nature/12.webp"
+          data-title="Nature/Landscape"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Nature/12.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Nature/13.webp"
+          data-title="Nature/Landscape"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Nature/13.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Nature/15.webp"
+          data-title="Nature/Landscape"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Nature/15.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Nature/16.webp"
+          data-title="Nature/Landscape"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Nature/16.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Nature/17.webp"
+          data-title="Nature/Landscape"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Nature/17.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Nature/18.webp"
+          data-title="Nature/Landscape"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Nature/18.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
         </div>
 
-        <div class="image">
-          <video
-            style="margin-top: 30px"
-            width="100%"
-            height="100%"
-            controls
-            data-aos="zoom-in"
-            data-aos-duration="1500"
-          >
-            <source src="./Asset/Gallery/Video/Cinematic.mp4" />
-          </video>
-
-          <video
-            style="margin-top: 30px"
-            width="100%"
-            height="100%"
-            controls
-            data-aos="zoom-in"
-            data-aos-duration="3000"
-          >
-            <source src="./Asset/Gallery/Video/Sine hijab.mp4" />
-          </video>
+        <!-- Portrait-->
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Portrait/portrait1.webp"
+          data-title="Portrait"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Portrait/portrait1.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
         </div>
 
-        <div class="image">
-          <video
-            width="100%"
-            height="100%"
-            controls
-            data-aos="zoom-in"
-            data-aos-duration="1500"
-          >
-            <source src="./Asset/Gallery/Video/Ucing.mp4" />
-          </video>
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Portrait/portrait2.webp"
+          data-title="Portrait"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Portrait/portrait2.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Portrait/portrait3.webp"
+          data-title="Portrait"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Portrait/portrait3.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Portrait/portrait4.webp"
+          data-title="Portrait"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Portrait/portrait4.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Portrait/portrait6.webp"
+          data-title="Portrait"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Portrait/portrait6.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Portrait/portrait7.webp"
+          data-title="Portrait"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Portrait/portrait7.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Portrait/portrait8.webp"
+          data-title="Portrait"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Portrait/portrait8.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Portrait/portrait9.webp"
+          data-title="Portrait"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Portrait/portrait9.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Portrait/portrait10.webp"
+          data-title="Portrait"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Portrait/portrait10.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Portrait/portrait11.webp"
+          data-title="Portrait"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Portrait/portrait11.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Portrait/portrait12.webp"
+          data-title="Portrait"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Portrait/portrait12.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Portrait/portrait13.webp"
+          data-title="Portrait"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Portrait/portrait13.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Portrait/portrait14.webp"
+          data-title="Portrait"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Portrait/portrait14.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Portrait/portrait15.webp"
+          data-title="Portrait"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Portrait/portrait15.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Portrait/portrait16.webp"
+          data-title="Portrait"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Portrait/portrait16.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
 
-          <video
-            style="margin-top: 30px"
-            width="100%"
-            height="100%"
-            controls
-            data-aos="zoom-in"
-            data-aos-duration="3000"
-          >
-            <source src="./Asset/Gallery/Video/Untitled.mp4" />
-          </video>
+        <!-- Random Photo-->
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Random Photo/1.webp"
+          data-title="Toys Photography"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Random Photo/1.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Random Photo/2.webp"
+          data-title="Random Photo"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Random Photo/2.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Random Photo/3.webp"
+          data-title="Random Photo"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Random Photo/3.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Random Photo/4.webp"
+          data-title="Random Photo"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Random Photo/4.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Random Photo/5.webp"
+          data-title="Random Photo"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Random Photo/5.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Random Photo/6.webp"
+          data-title="Toys Photography"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Random Photo/6.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Random Photo/8.webp"
+          data-title="Toys Photography"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Random Photo/8.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Random Photo/9.webp"
+          data-title="Toys Photography"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Random Photo/9.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Random Photo/10.webp"
+          data-title="Toys Photography"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Random Photo/10.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Random Photo/11.webp"
+          data-title="Toys Photography"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Random Photo/11.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Random Photo/12.webp"
+          data-title="Toys Photography"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Random Photo/12.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Random Photo/13.webp"
+          data-title="Toys Photography"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Random Photo/13.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Random Photo/14.webp"
+          data-title="Toys Photography"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Random Photo/14.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Random Photo/15.webp"
+          data-title="Toys Photography"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Random Photo/15.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Random Photo/16.webp"
+          data-title="Toys Photography"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Random Photo/16.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Random Photo/17.webp"
+          data-title="Toys Photography"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Random Photo/17.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Random Photo/18.webp"
+          data-title="Toys Photography"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Random Photo/18.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Random Photo/19.webp"
+          data-title="Toys Photography"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Random Photo/19.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Random Photo/20.webp"
+          data-title="Random Photo"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Random Photo/20.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Random Photo/21.webp"
+          data-title="Toys Photography"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Random Photo/21.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="photography"
+          data-src="Asset/Gallery/Photography/Random Photo/22.webp"
+          data-title="Random Photo"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Photography/Random Photo/22.webp"
+            alt="photography 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+
+        <!-- Design-->
+        <div
+          class="gallery-item"
+          data-category="design"
+          data-src="Asset/Gallery/Design/1.webp"
+          data-title="Poster Design"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Design/1.webp"
+            alt="design Grafis 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="design"
+          data-src="Asset/Gallery/Design/2.webp"
+          data-title="Poster Design"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Design/2.webp"
+            alt="design Grafis 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="design"
+          data-src="Asset/Gallery/Design/3.webp"
+          data-title="Poster Design"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Design/3.webp"
+            alt="design Grafis 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="design"
+          data-src="Asset/Gallery/Design/4.webp"
+          data-title="Poster Design"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Design/4.webp"
+            alt="design Grafis 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="design"
+          data-src="Asset/Gallery/Design/5.webp"
+          data-title="Poster Design"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Design/5.webp"
+            alt="design Grafis 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="design"
+          data-src="Asset/Gallery/Design/6.webp"
+          data-title="Poster Design"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Design/6.webp"
+            alt="design Grafis 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="design"
+          data-src="Asset/Gallery/Design/7.webp"
+          data-title="Poster Design"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Design/7.webp"
+            alt="design Grafis 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="design"
+          data-src="Asset/Gallery/Design/8.webp"
+          data-title="Poster Design"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Design/8.webp"
+            alt="design Grafis 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="design"
+          data-src="Asset/Gallery/Design/9.webp"
+          data-title="Poster Design"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Design/9.webp"
+            alt="design Grafis 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="design"
+          data-src="Asset/Gallery/Design/10.webp"
+          data-title="Poster Design"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Design/10.webp"
+            alt="design Grafis 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="design"
+          data-src="Asset/Gallery/Design/11.webp"
+          data-title="Poster Design"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Design/11.webp"
+            alt="design Grafis 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="design"
+          data-src="Asset/Gallery/Design/12.webp"
+          data-title="Poster Design"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Design/12.webp"
+            alt="design Grafis 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="design"
+          data-src="Asset/Gallery/Design/13.webp"
+          data-title="Poster Design"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Design/13.webp"
+            alt="design Grafis 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="design"
+          data-src="Asset/Gallery/Design/14.webp"
+          data-title="Poster Design"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Design/14.webp"
+            alt="design Grafis 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="design"
+          data-src="Asset/Gallery/Design/15.webp"
+          data-title="Poster Design"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Design/15.webp"
+            alt="design Grafis 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="design"
+          data-src="Asset/Gallery/Design/16.webp"
+          data-title="Poster Design"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Design/16.webp"
+            alt="design Grafis 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="design"
+          data-src="Asset/Gallery/Design/17.webp"
+          data-title="Poster Design"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Design/17.webp"
+            alt="design Grafis 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="design"
+          data-src="Asset/Gallery/Design/18.webp"
+          data-title="Poster Design"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Design/18.webp"
+            alt="design Grafis 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="design"
+          data-src="Asset/Gallery/Design/19.webp"
+          data-title="Poster Design"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Design/19.webp"
+            alt="design Grafis 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="design"
+          data-src="Asset/Gallery/Design/20.webp"
+          data-title="Poster Design"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Design/20.webp"
+            alt="design Grafis 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="design"
+          data-src="Asset/Gallery/Design/21.webp"
+          data-title="Poster Design"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Design/21.webp"
+            alt="design Grafis 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="design"
+          data-src="Asset/Gallery/Design/22.webp"
+          data-title="Poster Design"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Design/22.webp"
+            alt="design Grafis 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="design"
+          data-src="Asset/Gallery/Design/23.webp"
+          data-title="Poster Design"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Design/23.webp"
+            alt="design Grafis 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="design"
+          data-src="Asset/Gallery/Design/24.webp"
+          data-title="Poster Design"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Design/24.webp"
+            alt="design Grafis 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="design"
+          data-src="Asset/Gallery/Design/25.webp"
+          data-title="Poster Design"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Design/25.webp"
+            alt="design Grafis 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="design"
+          data-src="Asset/Gallery/Design/26.webp"
+          data-title="Poster Design"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Design/26.webp"
+            alt="design Grafis 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="design"
+          data-src="Asset/Gallery/Design/27.webp"
+          data-title="Poster Design"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Design/27.webp"
+            alt="design Grafis 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="design"
+          data-src="Asset/Gallery/Design/28.webp"
+          data-title="Poster Design"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Design/28.webp"
+            alt="design Grafis 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="design"
+          data-src="Asset/Gallery/Design/29.webp"
+          data-title="Poster Design"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Design/29.webp"
+            alt="design Grafis 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="design"
+          data-src="Asset/Gallery/Design/30.webp"
+          data-title="Poster Design"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Design/30.webp"
+            alt="design Grafis 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="design"
+          data-src="Asset/Gallery/Design/31.webp"
+          data-title="Poster Design"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Design/31.webp"
+            alt="design Grafis 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="design"
+          data-src="Asset/Gallery/Design/32.webp"
+          data-title="Poster Design"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Design/32.webp"
+            alt="design Grafis 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="design"
+          data-src="Asset/Gallery/Design/33.webp"
+          data-title="Poster Design"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Design/33.webp"
+            alt="design Grafis 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="design"
+          data-src="Asset/Gallery/Design/34.webp"
+          data-title="Poster Design"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Design/34.webp"
+            alt="design Grafis 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="design"
+          data-src="Asset/Gallery/Design/35.webp"
+          data-title="Poster Design"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Design/35.webp"
+            alt="design Grafis 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="design"
+          data-src="Asset/Gallery/Design/36.webp"
+          data-title="Poster Design"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Design/36.webp"
+            alt="design Grafis 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+
+        <!-- Item video -->
+        <div
+          class="gallery-item"
+          data-category="video"
+          data-video-src="Asset/Gallery/Video/A Fishermen's Life.webm"
+          data-title="A Fishermen's Life - A Sea of Thieves Short Video"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Video/Thumb/Fishermen.webp"
+            alt="Video Editing 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="video"
+          data-video-src="Asset/Gallery/Video/Cinematic.webm"
+          data-title="Time Has Flown By So Fast"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Video/Thumb/Time.webp"
+            alt="Video Editing 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="video"
+          data-video-src="Asset/Gallery/Video/Sine Hijab.webm"
+          data-title="A Thousand Years"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Video/Thumb/Hijab.webp"
+            alt="Video Editing 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="video"
+          data-video-src="Asset/Gallery/Video/Sine.webm"
+          data-title="Spinnin' Around"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Video/Thumb/Cine.webp"
+            alt="Video Editing 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="video"
+          data-video-src="Asset/Gallery/Video/Ucing.webm"
+          data-title="Spinnin' Around"
+          data-aos="fade-up"
+        >
+          <img
+            src="Asset/Gallery/Video/Thumb/Cat.webp"
+            alt="Video Editing 1"
+            loading="lazy"
+          />
+          <div class="overlay">More Detail</div>
+        </div>
+
+        <!-- Contoh item game lainnya -->
+        <div
+          class="gallery-item"
+          data-category="game"
+          data-src="Asset/Gallery/Game/1.webp"
+          data-title="Meowteor Protector"
+          data-game-url="https://acinolynx.github.io/Meowteor-Protector/"
+          data-aos="fade-up"
+        >
+          <img src="Asset/Gallery/Game/1.webp" alt="Game 1" loading="lazy" />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="game"
+          data-src="Asset/Gallery/Game/2.webp"
+          data-title="Jeritan Jiwa"
+          data-game-url="https://acinolynx.github.io/Jeritan-Jiwa/"
+          data-aos="fade-up"
+        >
+          <img src="Asset/Gallery/Game/2.webp" alt="Game 1" loading="lazy" />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="game"
+          data-src="Asset/Gallery/Game/3.webp"
+          data-title="ABC Scream Challenge"
+          data-game-url="https://acinolynx.github.io/ABC-Scream-Challenge-Game/"
+          data-aos="fade-up"
+        >
+          <img src="Asset/Gallery/Game/3.webp" alt="Game 1" loading="lazy" />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="game"
+          data-src="Asset/Gallery/Game/4.webp"
+          data-title="Monster Mash"
+          data-game-url="https://acinolynx.github.io/Monster-Mash/"
+          data-aos="fade-up"
+        >
+          <img src="Asset/Gallery/Game/4.webp" alt="Game 1" loading="lazy" />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="game"
+          data-src="Asset/Gallery/Game/5.webp"
+          data-title="Saksi Kata"
+          data-game-url="https://acinolynx.github.io/Saksi-Kata/"
+          data-aos="fade-up"
+        >
+          <img src="Asset/Gallery/Game/5.webp" alt="Game 1" loading="lazy" />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="game"
+          data-src="Asset/Gallery/Game/6.webp"
+          data-title="Connect Four"
+          data-game-url="https://acinolynx.github.io/Connect-Four/"
+          data-aos="fade-up"
+        >
+          <img src="Asset/Gallery/Game/6.webp" alt="Game 1" loading="lazy" />
+          <div class="overlay">More Detail</div>
+        </div>
+        <div
+          class="gallery-item"
+          data-category="game"
+          data-src="Asset/Gallery/Game/7.webp"
+          data-title="SMASH!"
+          data-game-url="https://acinolynx.github.io/SMASH/"
+          data-aos="fade-up"
+        >
+          <img src="Asset/Gallery/Game/7.webp" alt="Game 1" loading="lazy" />
+          <div class="overlay">More Detail</div>
         </div>
       </div>
+    </main>
 
-      <div class="subheading" id="game" data-aos="fade">
-        <h4>Game</h4>
-      </div>
-
-      <div class="box">
-        <div class="image" data-category="game">
-          <a
-            href="https://acinolynx.github.io/Meowteor-Protector/"
-            target="_blank"
-          >
-            <img
-              src="./Asset/Gallery/Game/1.png"
-              data-aos="zoom-in"
-              data-aos-duration="1500"
-              class="game-image"
-              loading="lazy"
-            />
-            <div class="overlay">Meowteor Protector</div>
-          </a>
-        </div>
-        <div class="image">
-          <a href="https://acinolynx.github.io/Jeritan-Jiwa/" target="_blank">
-            <img
-              src="./Asset/Gallery/Game/2.png"
-              data-aos="zoom-in"
-              data-aos-duration="1500"
-              class="game-image"
-            />
-            <div class="overlay">Jeritan Jiwa</div>
-          </a>
-        </div>
-        <div class="image">
-          <a
-            href="https://acinolynx.github.io/ABC-Scream-Challenge-Game/"
-            target="_blank"
-          >
-            <img
-              src="./Asset/Gallery/Game/3.png"
-              data-aos="zoom-in"
-              data-aos-duration="1500"
-              class="game-image"
-            />
-            <div class="overlay">ABC Scream Challenge</div>
-          </a>
-        </div>
-        <div class="image">
-          <a href="https://acinolynx.github.io/Monster-Mash/" target="_blank">
-            <img
-              src="./Asset/Gallery/Game/4.png"
-              data-aos="zoom-in"
-              data-aos-duration="1500"
-              class="game-image"
-            />
-            <div class="overlay">Monster Mash</div>
-          </a>
-        </div>
-        <div class="image">
-          <a href="https://acinolynx.github.io/Saksi-Kata/" target="_blank">
-            <img
-              src="./Asset/Gallery/Game/5.png"
-              data-aos="zoom-in"
-              data-aos-duration="1500"
-              class="game-image"
-            />
-            <div class="overlay">Saksi Kata</div>
-          </a>
-        </div>
-        <div class="image">
-          <a href="https://acinolynx.github.io/Connect-Four/" target="_blank">
-            <img
-              src="./Asset/Gallery/Game/6.png"
-              data-aos="zoom-in"
-              data-aos-duration="1500"
-              class="game-image"
-            />
-            <div class="overlay">Connect Four</div>
-          </a>
-        </div>
-        <div class="image">
-          <a href="https://acinolynx.github.io/SMASH/" target="_blank">
-            <img
-              src="./Asset/Gallery/Game/7.png"
-              data-aos="zoom-in"
-              data-aos-duration="1500"
-              class="game-image"
-            />
-            <div class="overlay">SMASH!</div>
-          </a>
-        </div>
-      </div>
-
-      <!--
-        <div class="btn">
-            <a href="#" class="btn">More</a>
-        </div>
-        -->
-    </div>
-
+    <!-- Footer from old Gallery.html -->
     <footer>
-      <div class="main-footer" data-aos="slide-up">
+      <div class="main-footer" data-aos="slide-up" data-aos-duration="1000">
         <div class="container">
           <div class="box">
+            <!-- Logo box moved back here -->
             <div class="logo">
-              <a href="#" class=""> <strong></strong> Acinolynx </a>
+              <a href="index.html">Acinolynx</a>
             </div>
             <div class="text">
               <p>See the Extraordinary in Your Ordinary.</p>
@@ -974,12 +1518,10 @@
           <div class="box">
             <h3>Quick Links</h3>
             <ul>
-              <li><a href="#photo">Photography</a></li>
-              <li><a href="#design">Graphic Design</a></li>
-              <li><a href="#video">Video</a></li>
+              <!-- Ganti link sesuai halaman/section yang relevan -->
+              <li><a href="index.html">Home</a></li>
             </ul>
           </div>
-
           <div class="box">
             <h3>Contact</h3>
             <ul>
@@ -999,10 +1541,11 @@
           </div>
         </div>
       </div>
-
       <div class="copyrights">
+        <!-- Logo box removed from here -->
         <div class="box">
-          <p>Copyrights @ 2024 by <a href="#">Sy.</a> All Rights Reserved .</p>
+          <p>Copyrights @ 2025 by <a href="#">Sy.</a> All Rights Reserved .</p>
+          <!-- Sesuaikan teks copyright -->
         </div>
         <div class="box">
           <div class="social">
@@ -1025,16 +1568,48 @@
       </div>
     </footer>
 
+    <!-- Scroll-to-top Button -->
     <button id="scroll-top-btn" title="Scroll to top">
       <a href="#"><i class="fas fa-arrow-up"></i></a>
     </button>
 
+    <!-- Lightbox Structure (Hidden by default) -->
+    <div id="lightbox" class="lightbox">
+      <span class="lightbox-close">&times;</span>
+      <div class="lightbox-content">
+        <img src="" alt="Lightbox Image" class="lightbox-image" />
+        <iframe
+          class="lightbox-video"
+          width="560"
+          height="315"
+          src=""
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+        <div class="lightbox-caption">
+          <h3 class="lightbox-title"></h3>
+          <p class="lightbox-desc"></p>
+          <a
+            class="lightbox-play-btn"
+            href="#"
+            target="_blank"
+            style="display: none"
+            >Play Game</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Script untuk lightbox dan filter -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-      AOS.init({
-        duration: 1500,
-      });
-    </script>
     <script src="script.js"></script>
+    <script>
+      // Pindahkan inisialisasi AOS ke script.js nanti
+      // AOS.init({
+      //   duration: 1500, // Contoh durasi
+      // });
+    </script>
   </body>
 </html>

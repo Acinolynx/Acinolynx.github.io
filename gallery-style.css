@@ -1,0 +1,859 @@
+/* Reset & Global Styles */
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: "Rubik", sans-serif; /* Kembali ke Rubik */
+  text-decoration: none;
+  list-style: none;
+  background-color: #1b1b1b; /* Dark background */
+  color: #f7f7f7; /* Light text */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative; /* Untuk scroll-to-top button */
+  line-height: 1.6; /* Default line height */
+}
+
+/* Headings */
+h1 {
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 50px;
+}
+
+h2 {
+  font-size: 45px;
+  font-weight: 500;
+  line-height: 45px;
+}
+
+h3 {
+  display: block;
+  font-size: 1.17em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  unicode-bidi: isolate;
+}
+
+h4 {
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 35px;
+}
+
+p {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+}
+
+a {
+  color: #ccc;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #f7f7f7;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 5px;
+}
+
+/* Container */
+.container {
+  max-width: 2100px; /* Lebar standar */
+  margin: auto;
+  padding: 0 6%; /* Padding dari style lama */
+  overflow: hidden;
+}
+
+/* --- Navbar Styling --- */
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 15px 0;
+  background-color: rgba(27, 27, 27, 0.8);
+  backdrop-filter: blur(5px);
+}
+
+.navbar .container {
+  padding: 1rem 6%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.navbar .logo {
+  height: auto;
+  overflow: hidden;
+}
+
+.navbar .logo a {
+  font-size: 25px;
+  font-weight: 900;
+  color: #f7f7f7;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-decoration: none;
+}
+
+.navbar ul {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.navbar ul li {
+  position: relative;
+}
+
+.navbar ul a {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ccc;
+  text-transform: capitalize;
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.navbar ul a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #f7f7f7;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease;
+}
+
+.navbar ul a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.navbar ul a:hover,
+.navbar ul li .dropdown-button:hover {
+  color: #f7f7f7;
+}
+
+/* Dropdown Styling */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #1b1b1b;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1001;
+  border-radius: 4px;
+  padding: 5px 0;
+  margin-top: 5px;
+}
+
+.dropdown-content a {
+  color: #ccc;
+  padding: 10px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+}
+.dropdown-content a::after {
+  display: none;
+}
+
+.dropdown-content a:hover {
+  background-color: #333;
+  color: #f7f7f7;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown .dropdown-button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: "Montserrat", sans-serif; /* Ensure font */
+  font-size: 18px; /* Match nav link */
+  font-weight: 600; /* Match nav link */
+  color: #ccc; /* Match nav link */
+  text-transform: capitalize;
+}
+.dropdown .dropdown-button i {
+  margin-left: 5px;
+}
+
+/* --- Footer Styling --- */
+footer {
+  background-color: #1b1b1b;
+  margin-top: 60px;
+}
+
+.main-footer {
+  border-top: 2px solid #333333;
+  padding: 2rem 0; /* Remove horizontal padding */
+  width: 100%;
+}
+
+.main-footer .container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.main-footer .container .box {
+  /* width: 22%; */ /* Let flexbox handle width */
+  /* min-width: 200px; */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.main-footer .container .box h3 {
+  font-size: 30px;
+  font-weight: 500;
+  color: #f7f7f7;
+}
+
+/* Box pertama (logo & text) - Kembalikan lebar spesifik dari style_gallery.css */
+.main-footer .container .box:nth-child(1) {
+  width: 22%; /* Original width */
+  min-width: 250px; /* Original min-width */
+}
+
+/* Box pertama (logo & text) - Kembalikan lebar spesifik dari style_gallery.css */
+.main-footer .container .box:nth-child(1) {
+  width: 22%; /* Original width */
+  min-width: 250px; /* Original min-width */
+}
+
+/* Box lainnya di main-footer - Kembalikan lebar spesifik dari style_gallery.css */
+.main-footer .container .box:not(:nth-child(1)) {
+  width: 22%; /* Original width for other boxes */
+  min-width: 250px; /* Original min-width */
+}
+
+.main-footer .box .logo a {
+  font-size: 22px;
+  font-weight: 900;
+  color: #f7f7f7;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.main-footer .box p {
+  max-width: 90%;
+  font-size: 15px;
+  color: #f7f7f7;
+  font-weight: 500; /* Tebalkan */
+}
+
+.main-footer .box h3 {
+  margin-bottom: 0.5rem;
+  margin-top: -8px;
+}
+
+.main-footer .box ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.main-footer .box ul li {
+  font-size: 16px;
+  color: #f7f7f7;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: -8px;
+}
+
+.main-footer .box ul a {
+  font-size: 16px;
+  color: #ccc;
+  position: relative;
+  padding-bottom: 2px;
+  font-weight: 500; /* Tebalkan */
+}
+.main-footer .box ul a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: #f7f7f7;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease;
+}
+.main-footer .box ul a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+.main-footer .box ul a:hover {
+  color: #f7f7f7;
+}
+
+.main-footer .box ul li i {
+  font-size: 16px;
+  color: #f7f7f7;
+  width: 20px;
+  text-align: center;
+}
+
+/* Copyrights Section */
+.copyrights {
+  width: 100%;
+  border-top: 1px solid #333333;
+  padding: 1rem 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.copyrights .box {
+  min-width: 0;
+}
+
+.copyrights p {
+  color: #f7f7f7;
+  font-size: 14px;
+  font-weight: 400; /* Tebalkan */
+}
+
+.copyrights a {
+  color: #f7f7f7;
+  font-size: 14px;
+  font-weight: 500; /* Sudah 500, bisa dinaikkan jika perlu */
+}
+.copyrights a:hover {
+  text-decoration: underline;
+}
+
+.copyrights .social {
+  display: flex;
+  gap: 1rem;
+}
+
+.copyrights .social a {
+  color: #aaa;
+  transition: color 0.3s ease;
+}
+.copyrights .social a:hover {
+  color: #f7f7f7;
+}
+
+.copyrights .social i {
+  font-size: 21px;
+}
+
+/* --- Scrollbar Styling --- */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #1b1b1b;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  border: 2px solid #1b1b1b;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #777;
+}
+
+/* --- Scroll-to-Top Button Styling --- */
+#scroll-top-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: #1b1b1b;
+  color: #f7f7f7;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 100;
+  opacity: 0;
+  transition: opacity 0.5s; /* Smooth transition */
+}
+
+#scroll-top-btn i {
+  color: #f7f7f7;
+  font-size: 1.2rem;
+}
+
+#scroll-top-btn.show {
+  opacity: 1;
+}
+
+/* ====================================================== */
+/* == GALLERY SPECIFIC STYLES == */
+/* ====================================================== */
+
+#gallery-page {
+  padding: 120px 6% 40px 6%; /* Padding atas lebih besar karena navbar absolute, padding L/R dari container */
+  margin: 0 auto;
+}
+
+/* Heading galeri */
+#gallery-page .heading {
+  width: 50%;
+  margin: 0 auto 50px auto;
+  padding-bottom: 20px;
+  border-bottom: 3px solid #f7f7f7;
+}
+#gallery-page .heading h1 {
+  font-size: 3rem;
+  text-align: center;
+  color: #f7f7f7;
+}
+
+/* Filter Buttons */
+.filter-buttons {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.filter-btn {
+  background: none;
+  border: 1px solid #555;
+  color: #ccc;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
+  font-weight: 700;
+  font-family: "Rubik", sans-serif;
+}
+
+.filter-btn:hover {
+  background-color: #333;
+  color: #f7f7f7;
+  border-color: #777;
+}
+
+.filter-btn.active {
+  background-color: #f7f7f7;
+  color: #1b1b1b;
+  border-color: #f7f7f7;
+  font-weight: 600;
+}
+
+/* Gallery Grid */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.gallery-item {
+  border: 1px solid #444;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #2a2a2a;
+}
+
+.gallery-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+}
+
+/* Overlay */
+.gallery-item .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 15px;
+  font-family: "Rubik", sans-serif; /* Kembali ke Rubik */
+}
+
+.gallery-item:hover .overlay {
+  opacity: 1;
+}
+
+/* --- Lightbox Styling --- */
+.lightbox {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+  padding-top: 60px;
+  animation: fadeIn 0.4s;
+  display: none;
+}
+
+.lightbox.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox-content {
+  position: relative;
+  margin: auto;
+  padding: 0;
+  width: 90%;
+  max-width: 900px;
+  text-align: center;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 50px;
+  right: 350px;
+  color: #aaa;
+  background-color: transparent;
+  font-size: 45px;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus {
+  color: #fff;
+  text-decoration: none;
+}
+
+.lightbox-image,
+.lightbox-video {
+  max-width: 100%;
+  max-height: 75vh;
+  display: block;
+  margin: auto auto;
+  border: none;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: none;
+}
+
+.lightbox-caption {
+  margin: 10px auto 0;
+  display: block;
+  width: 90%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+}
+
+.lightbox-title {
+  font-size: 1.4rem;
+  color: #fff;
+  margin-bottom: 8px;
+  font-family: "Rubik", sans-serif; /* Kembali ke Rubik */
+}
+
+.lightbox-desc {
+  font-size: 1rem;
+  color: #bbb;
+  font-family: "Rubik", sans-serif; /* Kembali ke Rubik */
+}
+
+/* Tombol Mainkan Game di Lightbox */
+.lightbox-play-btn {
+  display: none; /* Sembunyikan secara default */
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 10px 20px;
+  background-color: #f7f7f7; /* Warna terang */
+  color: #1b1b1b; /* Warna gelap */
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-family: "Rubik", sans-serif;
+}
+
+.lightbox-play-btn:hover {
+  background-color: #ccc; /* Sedikit lebih gelap saat hover */
+  color: #1b1b1b;
+}
+
+.lightbox-image[src=""],
+.lightbox-video[src=""] {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.play-button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #ffcaca;
+  color: #251b37;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.play-button:hover {
+  background-color: #ffb3b3;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  /* Medium devices */
+  .main-footer .container .box {
+    width: 48%;
+    min-width: 250px;
+  }
+  .main-footer .container .box:nth-child(1) {
+    width: 100%;
+  }
+  .navbar .container {
+    padding: 0 4%;
+  }
+  .copyrights {
+    padding: 1rem 4%;
+  }
+  #gallery-page {
+    padding: 100px 4% 40px 4%;
+  }
+
+  /* Responsive Lightbox Close Button */
+  .lightbox-close {
+    top: 15px; /* Lebih dekat ke atas */
+    right: 20px; /* Lebih dekat ke tepi kanan viewport */
+    font-size: 35px; /* Sedikit lebih kecil */
+  }
+
+  /* Responsive Lightbox Content */
+  .lightbox-content {
+    width: 95%; /* Sedikit lebih lebar di layar sedang */
+  }
+}
+
+@media (max-width: 768px) {
+  /* Small devices */
+  h1 {
+    font-size: 40px;
+  }
+  h2 {
+    font-size: 35px;
+  }
+  h4 {
+    font-size: 22px;
+  }
+  p {
+    font-size: 16px;
+  }
+
+  .navbar {
+    padding: 10px 0;
+  }
+  .navbar .container {
+    padding: 0 4%;
+  }
+  .navbar .logo a {
+    font-size: 20px;
+  }
+  .navbar ul {
+    gap: 1rem;
+  }
+  .navbar ul a {
+    font-size: 16px;
+  }
+  .dropdown .dropdown-button {
+    font-size: 16px;
+  }
+
+  #gallery-page {
+    padding: 90px 4% 30px 4%;
+  }
+  #gallery-page .heading {
+    width: 80%;
+  }
+  #gallery-page .heading h1 {
+    font-size: 2.5rem;
+  }
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px; /* Jarak antar item di layar kecil */
+  }
+
+  /* Responsive Lightbox Close Button */
+  .lightbox-close {
+    top: 10px; /* Lebih dekat lagi ke atas */
+    right: 15px; /* Lebih dekat lagi ke tepi */
+    font-size: 30px; /* Lebih kecil lagi */
+  }
+
+  .main-footer .container {
+    /* Pastikan flex-direction column jika perlu, tapi biasanya gap sudah cukup */
+    gap: 1.5rem; /* Sesuaikan jarak antar box */
+  }
+
+  .main-footer .container {
+    padding: 0; /* Reset padding container, rely on main-footer padding */
+  }
+  .main-footer .container .box {
+    width: 100%; /* Pastikan semua box full width */
+    text-align: left; /* Pastikan teks rata kiri */
+    align-items: flex-start; /* Ratakan item flex (ul) ke kiri */
+  }
+  .main-footer .box p {
+    max-width: 100%; /* Ensure paragraph takes full width */
+  }
+  /* Hapus justify-content dari li, biarkan perataan induk yang bekerja */
+  /* .main-footer .box ul li {
+     justify-content: flex-start !important; 
+  } */
+
+  .copyrights {
+    flex-direction: column; /* Tumpuk elemen secara vertikal */
+    gap: 0.8rem; /* Beri sedikit jarak antar elemen */
+    padding: 1rem 4%; /* Padding for small devices */
+    align-items: flex-start; /* Ratakan container box ke kiri */
+  }
+  .copyrights .box {
+    width: 100%; /* Pastikan box mengambil lebar penuh */
+    text-align: left; /* Ratakan teks di dalam box ke kiri */
+  }
+  .copyrights .social {
+    justify-content: flex-start; /* Ratakan ikon sosial ke kiri */
+  }
+}
+
+@media (max-width: 450px) {
+  /* Very small screens */
+
+  /* Adjust main footer padding to match index.html */
+  .main-footer {
+    padding: 2rem 6%; /* Reduced padding for very small screens, similar to index */
+  }
+  .main-footer .container {
+    gap: 1rem; /* Reduce gap slightly */
+  }
+
+  /* Adjust copyrights padding to match index.html */
+  .copyrights {
+    padding: 0.5rem 6%; /* Match index.html */
+    gap: 0.5rem; /* Reduce gap slightly */
+  }
+
+  .navbar ul {
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .navbar ul a {
+    font-size: 14px;
+  }
+  .dropdown .dropdown-button {
+    font-size: 14px;
+  }
+
+  #gallery-page .heading {
+    width: 90%;
+  }
+  #gallery-page .heading h1 {
+    font-size: 2rem;
+  }
+  .gallery-grid {
+    grid-template-columns: 1fr; /* Satu kolom di layar sangat kecil */
+    gap: 15px; /* Kurangi jarak lagi */
+  }
+
+  /* Responsive Filter Buttons */
+  .filter-btn {
+    padding: 8px 15px; /* Kurangi padding */
+    font-size: 0.9rem; /* Kecilkan font sedikit */
+  }
+
+  #scroll-top-btn {
+    bottom: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+  }
+  #scroll-top-btn i {
+    font-size: 1rem;
+  }
+}

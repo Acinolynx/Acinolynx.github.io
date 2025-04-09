@@ -9,6 +9,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-snap-type: y mandatory; /* Aktifkan scroll snapping vertikal */
 }
 
 body {
@@ -103,7 +104,7 @@ p {
 }
 
 .header {
-  background-image: url(./Asset/DSC00304_18_©Aci_Instagram.png);
+  background-image: url(Asset/Home/Hero.webp);
   height: 100vh;
   width: 100%;
   background-position: top left;
@@ -111,6 +112,7 @@ p {
   background-size: cover;
   background-attachment: fixed;
   position: relative;
+  scroll-snap-align: start; /* Jadikan header sebagai titik snap */
 }
 
 .header::before {
@@ -249,6 +251,7 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  scroll-snap-align: start; /* Jadikan setiap section sebagai titik snap */
 }
 
 section .container {
@@ -676,6 +679,7 @@ footer {
   background-repeat: no-repeat;
   background-attachment: fixed;
   padding: 1rem 6%;
+  scroll-snap-align: start; /* Jadikan footer sebagai titik snap */
 }
 
 .main-footer {
