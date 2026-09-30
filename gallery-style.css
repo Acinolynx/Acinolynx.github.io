@@ -537,6 +537,14 @@ footer {
   opacity: 1;
 }
 
+/* The overlay only appeared on :hover, so on touch devices there was no
+   clue a tile was tappable. Reveal it whenever hover isn't available. */
+@media (hover: none) {
+  .gallery-item .overlay {
+    opacity: 0.7;
+  }
+}
+
 /* --- Lightbox Styling --- */
 .lightbox {
   position: fixed;

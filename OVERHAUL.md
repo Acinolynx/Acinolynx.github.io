@@ -149,7 +149,7 @@ Setelah `gallery.html` benar-benar ter-track, link `./Gallery.html` di
 | **2** | ☑ | Optimasi gambar (thumbnail, compress, anti-CLS) | 30 m ✅ |
 | **2b** | ☑ | Lightbox full-size → 2000px (hemat 99 MB) | 12 m ✅ |
 | **3** | ☑ | `git gc --aggressive` (nol ukuran — lihat §5) | 14 m ✅ |
-| **4** | ☐ | UI/UX & responsive | 90 m |
+| **4** | ☑ | UI/UX & responsive | 45 m ✅ |
 | **5** | ☐ | Aksesibilitas | 60 m |
 | **6** | ☐ | Fitur baru (lightbox nav, filter URL sync) | 90 m |
 | **7** | ☐ | SEO & cleanup | 40 m |
@@ -296,14 +296,37 @@ penuh setiap kali. Saat ini repo **tidak** bisa di-purge tanpa rewrite.
 3. Orphan branch bersih (`git checkout --orphan`) — riwayat bersih, tapi
    history lama tetap menempel di repo dan repo tetap 1.8 GB.
 
-### ☐ Phase 4 — UI/UX & Responsive
+### ☑ Phase 4 — UI/UX & Responsive — **SELESAI 2026-09-30**
 
-- [ ] `@media` 992px & 768px: grid 3→2 kolom
-- [ ] Reset `.header .box { translate(80%) }` untuk range tablet
-- [ ] Hamburger menu untuk mobile
-- [ ] `h1/h2/p` → `clamp()`
-- [ ] Fix `.lightbox-close { right: 350px }` → responsif
-- [ ] `.gallery-item .overlay` → affordance di touch (bukan hanya `:hover`)
+- [x] **Bug overflow WORKS GRID.** Satu-satunya breakpoint grid ada di `450px`,
+      jadi 451–992px tetap `repeat(3, minmax(250px,1fr))` → butuh ~782px.
+      Tablet/HP landscape jadi scroll horizontal. → `992px`: 2 kolom
+- [x] **`.header .box { translate(80%, -50%) }`** pushing copy hero ke kanan
+      sampai keluar layar di tablet → reset di `992px`
+- [x] `h1/h2/h4/p` → **`clamp()`** ( fluid, bukan px mati). Blok `450px`
+      yang tadinya override px sekarang tidak perlu untuk typography
+- [x] `.lightbox-close { right: 350px }` → **sudah ada** fix di `992px`
+      (itu butir yang sudah selesai sebelumnya, bukan kerja baru)
+- [x] `.gallery-item .overlay` → `@media (hover: none)` = **0.7 opacity**,
+      karena `:hover` tidak pernah jalan di touch
+- [x] **Markup `<ul>` invalid** di index — ada `<li>` membungkus 3 `<li>`
+      lain. `<li>` tidak boleh berisi `<li>` langsung; screen reader &
+      `.navbar ul li` jadi tidak konsisten. Sudah dirapikan
+- [x] **Gallery tidak punya nav link sama sekali** (cuma logo) → user yang
+      masuk dari tombol Gallery tidak punya jalan kembali. Ditambah
+      `Works` + `Contact` (pakai `./index.html#...` karena `#works` di
+      index tidak terjangkau dari page lain)
+- [ ] Hamburger menu → **tidak dikerjakan, tidak perlu.** Hanya 3 link
+      (≈250px di 22px font); di `450px` sudah turun ke 14px. Navbar
+      hamburger untuk 3 item akan menambah JS + CSS tanpa manfaat nyata.
+
+#### ⚠️ Perlu mata pemilik
+
+`.header .box` di `992px` saya reset ke `translate(0, -50%)` supaya teks
+tidak keluar layar. Konsekuensinya posisi teks hero di tablet berubah
+(bisa menutupi subjek foto, karena `background-size: cover` sudah
+meng-crop). Kalau hasilnya terasa salah di mata, tinggal ubah
+`transform` di blok `992px`.
 - [ ] Hapus `AOS 9000ms`/`5000ms` → cap ~800ms
 - [ ] Ubah `scroll-snap-type` dari `mandatory` → `proximity`
 - [ ] Navbar `absolute` → `fixed` + shrink saat scroll + active link indicator
