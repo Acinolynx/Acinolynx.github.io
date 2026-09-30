@@ -147,6 +147,7 @@ Setelah `gallery.html` benar-benar ter-track, link `./Gallery.html` di
 | **0** | ☑ | Amankan repo: `core.ignorecase`, commit baseline, tag, `.gitignore` | 5 m ✅ |
 | **1** | ☑ | P0: bug pemblokir (link case, `.btn`, video, asset 404) | 40 m ✅ |
 | **2** | ☑ | Optimasi gambar (thumbnail, compress, anti-CLS) | 30 m ✅ |
+| **2b** | ☑ | Lightbox full-size → 2000px (hemat 99 MB) | 12 m ✅ |
 | **3** | ☑ | `git gc --aggressive` (nol ukuran — lihat §5) | 14 m ✅ |
 | **4** | ☐ | UI/UX & responsive | 90 m |
 | **5** | ☐ | Aksesibilitas | 60 m |
@@ -248,11 +249,22 @@ Tool dipakai: **Pillow 12.3** (WebP ✅), ffmpeg 9.0.2, ImageMagick 7.1.2
 
 #### Keputusan tersisa (butuh persetujuan pemilik)
 
-**Full-size original lightbox masih 147.9 MB.** `.lightbox-content` hanya
-`max-width: 900px` + `max-height: 75vh`, jadi original 6000px praktis
-~7× lebih besar dari yang pernah ditampilkan. Menurunkan ke **2000px** akan
-memangkas ~100 MB tanpa perbedaan yang kasat mata — tapi ini keputusan
-kualitas, jadi belum dikerjakan. Lihat §9.
+#### ☐→☑ Lightbox full-size diturunkan ke 2000px — **SELESAI 2026-09-30**
+
+Disetujui pemilik. `.lightbox-content` hanya `max-width: 900px` +
+`max-height: 75vh`, jadi original 6000px praktis ~7× lebih besar dari yang
+pernah ditampilkan.
+
+- **Master dicopy dulu ke `../_originals_6000px_backup/` (149 MB, DI LUAR
+  repo)** sebelum ditimpa — history git bukan tempat aman untuk master.
+- 83/96 di-downscale ke **2000px q84** (13 sisanya sudah ≤2000px)
+- **147.9 MB → 48.6 MB** (hemat 99.3 MB). `Asset/` 193 MB → **94 MB**
+- Working tree: 194 MB → **94 MB**
+- Verifikasi: 96/96 file valid, lebar maks 2000px
+- Fidelity Design vs master: mean\|diff\| **1.96–3.50** (ambang noise WebP ~5)
+
+**Konsekuensi:** `data-src` sekarang menunjuk file 2000px. Kalau nanti butuh
+master, ambil dari `../_originals_6000px_backup/`.
 
 ### ☑ Phase 3 — Perbaikan `.git` — **SELESAI 2026-09-30** *(nol ukuran, tapi berhasil)*
 
