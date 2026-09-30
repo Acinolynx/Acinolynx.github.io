@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
+    <a class="skip-link" href="#works">Skip to content</a>
     
     <div class="navbar" data-aos="slide-down">
         <div class="container">
@@ -34,7 +35,7 @@
     <div class="header">
         <div class="container" data-aos="fade" data-aos-duration="5000">
             <div class="box">
-                <h2>Hello There...</h2>
+                <p class="eyebrow">Hello There...</p>
                 <h1>I'm Dito Syafik</h1>
                 <p>
                     I love turning ideas into visuals, whether it’s a poster, a photo, a video, or a game. I create things that matter to me, and hopefully, to you too.
@@ -98,7 +99,7 @@
     <section class="works bg-dark" id="works">
 
         <div class="heading">
-            <h1>My Works</h1>
+            <h2>My Works</h2>
         </div>
 
 
@@ -163,9 +164,9 @@
     <section class="contact" id="contact">
         <div class="container">
             <div class="box" >
-                <h1 data-aos="slide-right">
+                <h2 data-aos="slide-right">
                     Need to ask something? Let's talk!
-                </h1>
+                </h2>
                 <ul>
                     <li data-aos="fade">
                         <i class="fab fa-whatsapp"></i>
@@ -189,22 +190,26 @@
                         <form action="https://api.web3forms.com/submit" method="POST">
                             <div class="one-line">
                                 <div class="box-input">
-                                    <i class="fa fa-user"></i>
-                                    <input type="text" name="name" id="text" placeholder="Full Name">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                    <label class="visually-hidden" for="cf-name">Full name</label>
+                                    <input type="text" name="name" id="cf-name" placeholder="Full Name" autocomplete="name">
                                 </div>
-                                    <input type="hidden" name="access_key" value="b895ce67-0ca7-46d9-bfe3-0f47555de4d8">
+                                <input type="hidden" name="access_key" value="b895ce67-0ca7-46d9-bfe3-0f47555de4d8">
                                 <div class="box-input">
-                                    <i class="fa fa-phone"></i>
-                                    <input type="text" name="number" id="text" placeholder="Phone">
-                                </div>
-                                <div class="box-input">
-                                    <i class="fa fa-at"></i>
-                                    <input type="email" name="email" id="text" placeholder="Email">
+                                    <i class="fa fa-phone" aria-hidden="true"></i>
+                                    <label class="visually-hidden" for="cf-phone">Phone number</label>
+                                    <input type="tel" name="number" id="cf-phone" placeholder="Phone" autocomplete="tel">
                                 </div>
                                 <div class="box-input">
-                                    <textarea name="message" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
+                                    <i class="fa fa-at" aria-hidden="true"></i>
+                                    <label class="visually-hidden" for="cf-email">Email address</label>
+                                    <input type="email" name="email" id="cf-email" placeholder="Email" autocomplete="email" required>
                                 </div>
-                                <button class="btn">Submit</button>
+                                <div class="box-input">
+                                    <label class="visually-hidden" for="cf-message">Your message</label>
+                                    <textarea name="message" id="cf-message" rows="10" placeholder="Your Message"></textarea>
+                                </div>
+                                <button class="btn" type="submit">Submit</button>
                             </div>
                         </form>
                     </div>
@@ -230,7 +235,7 @@
                     </div>
                 </div>
                 <div class="box">
-                    <h3>Quick Links</h3>
+                    <h2>Quick Links</h2>
                     <ul>
                         <li><a href="#about">About</a></li>
                         <li><a href="#works">Works</a></li>
@@ -240,7 +245,7 @@
                 </div>
 
                 <div class="box">
-                    <h3>Contact</h3>
+                    <h2>Contact</h2>
                     <ul>
                         <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/+6285156972211" target="_blank">  +62-8515-6972-211 </a></li>
                         <li><i class="fa fa-at"></i> <a href="mailto:contact.ditosyafik@gmail.com" target="_blank"> contact.ditosyafik@gmail.com </a></li>

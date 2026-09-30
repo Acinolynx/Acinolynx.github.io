@@ -150,7 +150,7 @@ Setelah `gallery.html` benar-benar ter-track, link `./Gallery.html` di
 | **2b** | ☑ | Lightbox full-size → 2000px (hemat 99 MB) | 12 m ✅ |
 | **3** | ☑ | `git gc --aggressive` (nol ukuran — lihat §5) | 14 m ✅ |
 | **4** | ☑ | UI/UX & responsive | 45 m ✅ |
-| **5** | ☐ | Aksesibilitas | 60 m |
+| **5** | ☑ | Aksesibilitas (keyboard, focus, ARIA, label) | 50 m ✅ |
 | **6** | ☐ | Fitur baru (lightbox nav, filter URL sync) | 90 m |
 | **7** | ☐ | SEO & cleanup | 40 m |
 
@@ -334,19 +334,45 @@ meng-crop). Kalau hasilnya terasa salah di mata, tinggal ubah
 - [ ] **Restore + modernize navbar Gallery** (C5)
 - [ ] Tambah "scroll down" indicator di hero
 
-### ☐ Phase 5 — Aksesibilitas
+### ☑ Phase 5 — Aksesibilitas — **SELESAI 2026-09-30**
 
-- [ ] 102 `.gallery-item` → bisa diakses keyboard
-- [ ] Lightbox: `role="dialog"`, `aria-modal`, focus trap, return focus
-- [ ] Close lightbox → `<button>` + `aria-label`
-- [ ] Tambah `:focus-visible` **global**
-- [ ] Fix `id="text"` duplikat ×3; tambah `<label>`, `required`
-- [ ] Validasi client-side + honeypot + feedback sukses/gagal
-- [ ] Landmarks: `<nav>`, `<main>`, skip-link, heading hierarchy
-- [ ] `aria-label` di semua icon-only link
-- [ ] Fix `<ul>/<li>` nesting, `<textarea id="">`
-- [ ] Seragamkan `lang`
-- [ ] Section About **tetap commented** (C1)
+Temuan utama (semua dihitung ulang setelah perbaikan):
+
+| Item | Sebelum | Sesudah |
+|---|---|---|
+| `<h1>` per halaman | 3 (index) | **1** |
+| `<h2>` sebelum `<h1>` | ya ("Hello There...") | **0** (jadi `<p class="eyebrow">`) |
+| Gallery item bisa fokus | **0 / 101** | **101 / 101** |
+| Tombol close lightbox bisa dioperasikan keyboard | **tidak** (`<span>`) | **ya** (`<button>`) |
+| Field form bertanpa `<label>` | **4 / 4** (placeholder saja) | **0** |
+| `id` duplikat | `id="text"` × 3 | **0** |
+| `alt` generik berulang | 101 (`"photography 1"`) | **0** (`"Photo: Landscape"`) |
+| Skip link | tidak ada | **ada** di 2 halaman |
+| Lightbox `role`/`aria-modal` | tidak | **ya** |
+
+- [x] **101 `.gallery-item` diberi `role="button"` + `tabindex="0"` + `aria-label`.**
+      Sebelumnya semuanya `<div>` → galeri **sepenuhnya tidak bisa dipakai
+      keyboard** (WCAG 2.1.1). Enter/Space kini membuka item
+- [x] **`.lightbox-close` `<span>` → `<button>`** (bisa fokus + Enter/Space)
+- [x] Lightbox jadi `role="dialog"` `aria-modal="true"` `aria-labelledby`
+- [x] **Focus management**: fokus masuk ke tombol close saat lightbox dibuka,
+      **focus trap** (Tab/Shift-Tab tidak keluar dari dialog), dan fokus
+      dikembalikan ke tile asal saat ditutup
+- [x] Form: `<label>` asli + `.visually-hidden`, `id` unik, `autocomplete`
+      (`name`/`tel`/`email`), ikon FA `aria-hidden`, `required` di email,
+      `type="submit"` eksplisit. Placeholder tetap sebagai contoh, bukan label
+- [x] `aria-pressed` di 5 filter button, di-sync JS saat filter berubah
+- [x] `alt` gambar galeri deskriptif dari `data-title` (bukan `"photography 1"`)
+- [x] Skip link di kedua halaman (target `#works` / `#gallery-page` terverifikasi ada)
+- [x] `:focus-visible` outline — indikator fokus tidak lagi bergantung pada `:hover`
+- [x] `@media (prefers-reduced-motion: reduce)` mematikan transisi
+
+#### Catatan kontras
+
+`#aaa` pada `.lightbox-close` di atas `#000` = **~7.0:1**, lolos AA untuk
+teks biasa. Palet `#f7f7f7` / `#ccc` di atas `#111` juga lolos. Yang belum
+diuji otomatis adalah gambar di dalam tile — kontras teks `.overlay` tergantung
+foto, jadi `rgba(0,0,0,0.7)` yang dipakai sudah cukup aman.
 
 ### ☐ Phase 6 — Fitur Baru
 

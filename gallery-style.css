@@ -865,3 +865,52 @@ footer {
     font-size: 1rem;
   }
 }
+
+/* ---------- Accessibility ---------- */
+
+/* Tombol close sebelumnya <span>, jadi tidak bisa difokus dan tidak bisa
+   dioperasikan keyboard. Sekarang <button>, jadi butuh reset style. */
+.lightbox-close {
+  padding: 0;
+  border: 0;
+  font-family: "Rubik", sans-serif;
+  line-height: 1;
+}
+
+.gallery-item:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  padding: 0.75rem 1.25rem;
+  background: #111;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  transform: translateY(-110%);
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.filter-btn:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
+/* Lightbox adalah dialog modal: kurangi animasi untuk yang minta reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

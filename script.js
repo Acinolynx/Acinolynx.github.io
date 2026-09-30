@@ -52,6 +52,9 @@ function initGalleryFilter() {
     if (e.target.classList.contains("filter-btn")) {
       filterContainer.querySelector(".active")?.classList.remove("active");
       e.target.classList.add("active");
+      filterContainer
+        .querySelectorAll(".filter-btn")
+        .forEach((b) => b.setAttribute("aria-pressed", String(b === e.target)));
 
       const filterValue = e.target.getAttribute("data-filter");
 
@@ -102,8 +105,10 @@ function initLightbox() {
   const closeBtn = lightbox.querySelector(".lightbox-close");
   const galleryItems = document.querySelectorAll(".gallery-item");
 
-  galleryItems.forEach((item) => {
-    item.addEventListener("click", () => {
+  let lastFocused = null;
+
+  function openItem(item) {
+    lastFocused = item;
       const imgSrc = item.getAttribute("data-src");
       const videoSrc = item.getAttribute("data-video-src");
       const title = item.getAttribute("data-title") || ""; // Default ke string kosong
@@ -146,6 +151,16 @@ function initLightbox() {
       // Tampilkan lightbox
       lightbox.classList.add("active");
       document.body.style.overflow = "hidden"; // Cegah scroll body saat lightbox aktif
+      closeBtn.focus();
+  }
+
+  galleryItems.forEach((item) => {
+    item.addEventListener("click", () => openItem(item));
+    item.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") {
+        e.preventDefault();
+        openItem(item);
+      }
     });
   });
 
@@ -160,6 +175,9 @@ function initLightbox() {
     lightboxImage.removeAttribute("src");
     lightboxPlayBtn.style.display = "none"; // Sembunyikan tombol play saat lightbox ditutup
     lightboxPlayBtn.href = "#"; // Reset href saat ditutup
+    // Kembalikan fokus ke tile asal, kalau tidak user kehilangan posisi
+    // keyboard dan fokus jatuh ke <body>.
+    lastFocused?.focus();
   }
 
   // Event listener untuk tombol close
@@ -175,8 +193,27 @@ function initLightbox() {
 
   // Event listener untuk tombol Escape
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && lightbox.classList.contains("active")) {
-      closeLightbox();
+    if (lightbox.classList.contains("active")) {
+      if (e.key === "Escape") {
+        closeLightbox();
+        return;
+      }
+      // Trap fokus: dialog modal harus menahan Tab di dalam dirinya.
+      if (e.key === "Tab") {
+        const focusable = [...lightbox.querySelectorAll(
+          'button, a[href], video[controls], [tabindex]:not([tabindex="-1"])'
+        )].filter((el) => el.offsetParent !== null);
+        if (!focusable.length) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
     }
   });
 }

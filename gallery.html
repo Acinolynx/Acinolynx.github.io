@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   </head>
   <body>
+    <a class="skip-link" href="#gallery-page">Skip to gallery</a>
     <!-- Navbar from old Gallery.html -->
     <nav class="navbar" data-aos="slide-down" data-aos-duration="1000">
       <div class="container">
@@ -72,40 +73,35 @@
           class="filter-btn active"
           data-filter="all"
           data-aos="fade-up"
-          data-aos-delay="100"
-        >
+          data-aos-delay="100" aria-pressed="true">
           All
         </button>
         <button
           class="filter-btn"
           data-filter="photography"
           data-aos="fade-up"
-          data-aos-delay="200"
-        >
+          data-aos-delay="200" aria-pressed="false">
           Photography
         </button>
         <button
           class="filter-btn"
           data-filter="design"
           data-aos="fade-up"
-          data-aos-delay="300"
-        >
+          data-aos-delay="300" aria-pressed="false">
           Graphic Design
         </button>
         <button
           class="filter-btn"
           data-filter="video"
           data-aos="fade-up"
-          data-aos-delay="400"
-        >
+          data-aos-delay="400" aria-pressed="false">
           Video Editing
         </button>
         <button
           class="filter-btn"
           data-filter="game"
           data-aos="fade-up"
-          data-aos-delay="500"
-        >
+          data-aos-delay="500" aria-pressed="false">
           Game
         </button>
       </div>
@@ -113,8 +109,8 @@
       <div class="gallery-grid" data-aos="fade-up" data-aos-duration="1000">
         <!-- Item Galeri -->
         <!-- Nature/Landscape-->
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Landscape (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Nature/1.webp"
           data-title="Nature/Landscape"
@@ -122,12 +118,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Nature/1.webp"
-            alt="photography 1"
+            alt="Photo: Landscape"
             loading="lazy" width="800" height="428" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Landscape (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Nature/2.webp"
           data-title="Nature/Landscape"
@@ -135,12 +131,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Nature/2.webp"
-            alt="photography 1"
+            alt="Photo: Landscape"
             loading="lazy" width="800" height="533" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Landscape (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Nature/4.webp"
           data-title="Nature/Landscape"
@@ -148,12 +144,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Nature/4.webp"
-            alt="photography 1"
+            alt="Photo: Landscape"
             loading="lazy" width="800" height="533" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Landscape (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Nature/5.webp"
           data-title="Nature/Landscape"
@@ -161,12 +157,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Nature/5.webp"
-            alt="photography 1"
+            alt="Photo: Landscape"
             loading="lazy" width="800" height="533" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Landscape (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Nature/6.webp"
           data-title="Nature/Landscape"
@@ -174,12 +170,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Nature/6.webp"
-            alt="photography 1"
+            alt="Photo: Landscape"
             loading="lazy" width="800" height="533" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Landscape (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Nature/7.webp"
           data-title="Nature/Landscape"
@@ -187,12 +183,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Nature/7.webp"
-            alt="photography 1"
+            alt="Photo: Landscape"
             loading="lazy" width="800" height="533" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Landscape (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Nature/8.webp"
           data-title="Nature/Landscape"
@@ -200,12 +196,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Nature/8.webp"
-            alt="photography 1"
+            alt="Photo: Landscape"
             loading="lazy" width="800" height="533" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Landscape (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Nature/9.webp"
           data-title="Nature/Landscape"
@@ -213,12 +209,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Nature/9.webp"
-            alt="photography 1"
+            alt="Photo: Landscape"
             loading="lazy" width="800" height="533" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Landscape (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Nature/10.webp"
           data-title="Nature/Landscape"
@@ -226,12 +222,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Nature/10.webp"
-            alt="photography 1"
+            alt="Photo: Landscape"
             loading="lazy" width="800" height="1000" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Landscape (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Nature/11.webp"
           data-title="Nature/Landscape"
@@ -239,12 +235,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Nature/11.webp"
-            alt="photography 1"
+            alt="Photo: Landscape"
             loading="lazy" width="800" height="599" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Landscape (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Nature/12.webp"
           data-title="Nature/Landscape"
@@ -252,12 +248,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Nature/12.webp"
-            alt="photography 1"
+            alt="Photo: Landscape"
             loading="lazy" width="800" height="599" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Landscape (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Nature/13.webp"
           data-title="Nature/Landscape"
@@ -265,12 +261,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Nature/13.webp"
-            alt="photography 1"
+            alt="Photo: Landscape"
             loading="lazy" width="800" height="640" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Landscape (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Nature/15.webp"
           data-title="Nature/Landscape"
@@ -278,12 +274,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Nature/15.webp"
-            alt="photography 1"
+            alt="Photo: Landscape"
             loading="lazy" width="800" height="1000" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Landscape (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Nature/16.webp"
           data-title="Nature/Landscape"
@@ -291,12 +287,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Nature/16.webp"
-            alt="photography 1"
+            alt="Photo: Landscape"
             loading="lazy" width="800" height="599" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Landscape (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Nature/17.webp"
           data-title="Nature/Landscape"
@@ -304,12 +300,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Nature/17.webp"
-            alt="photography 1"
+            alt="Photo: Landscape"
             loading="lazy" width="800" height="1001" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Landscape (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Nature/18.webp"
           data-title="Nature/Landscape"
@@ -317,14 +313,14 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Nature/18.webp"
-            alt="photography 1"
+            alt="Photo: Landscape"
             loading="lazy" width="800" height="640" />
           <div class="overlay">More Detail</div>
         </div>
 
         <!-- Portrait-->
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Portrait (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Portrait/portrait1.webp"
           data-title="Portrait"
@@ -332,13 +328,13 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Portrait/portrait1.webp"
-            alt="photography 1"
+            alt="Photo: Portrait"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
 
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Portrait (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Portrait/portrait2.webp"
           data-title="Portrait"
@@ -346,12 +342,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Portrait/portrait2.webp"
-            alt="photography 1"
+            alt="Photo: Portrait"
             loading="lazy" width="800" height="533" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Portrait (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Portrait/portrait3.webp"
           data-title="Portrait"
@@ -359,12 +355,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Portrait/portrait3.webp"
-            alt="photography 1"
+            alt="Photo: Portrait"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Portrait (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Portrait/portrait4.webp"
           data-title="Portrait"
@@ -372,12 +368,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Portrait/portrait4.webp"
-            alt="photography 1"
+            alt="Photo: Portrait"
             loading="lazy" width="800" height="533" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Portrait (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Portrait/portrait6.webp"
           data-title="Portrait"
@@ -385,12 +381,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Portrait/portrait6.webp"
-            alt="photography 1"
+            alt="Photo: Portrait"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Portrait (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Portrait/portrait7.webp"
           data-title="Portrait"
@@ -398,12 +394,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Portrait/portrait7.webp"
-            alt="photography 1"
+            alt="Photo: Portrait"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Portrait (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Portrait/portrait8.webp"
           data-title="Portrait"
@@ -411,12 +407,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Portrait/portrait8.webp"
-            alt="photography 1"
+            alt="Photo: Portrait"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Portrait (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Portrait/portrait9.webp"
           data-title="Portrait"
@@ -424,12 +420,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Portrait/portrait9.webp"
-            alt="photography 1"
+            alt="Photo: Portrait"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Portrait (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Portrait/portrait10.webp"
           data-title="Portrait"
@@ -437,12 +433,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Portrait/portrait10.webp"
-            alt="photography 1"
+            alt="Photo: Portrait"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Portrait (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Portrait/portrait11.webp"
           data-title="Portrait"
@@ -450,12 +446,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Portrait/portrait11.webp"
-            alt="photography 1"
+            alt="Photo: Portrait"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Portrait (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Portrait/portrait12.webp"
           data-title="Portrait"
@@ -463,12 +459,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Portrait/portrait12.webp"
-            alt="photography 1"
+            alt="Photo: Portrait"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Portrait (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Portrait/portrait13.webp"
           data-title="Portrait"
@@ -476,12 +472,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Portrait/portrait13.webp"
-            alt="photography 1"
+            alt="Photo: Portrait"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Portrait (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Portrait/portrait14.webp"
           data-title="Portrait"
@@ -489,12 +485,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Portrait/portrait14.webp"
-            alt="photography 1"
+            alt="Photo: Portrait"
             loading="lazy" width="800" height="1200" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Portrait (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Portrait/portrait15.webp"
           data-title="Portrait"
@@ -502,12 +498,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Portrait/portrait15.webp"
-            alt="photography 1"
+            alt="Photo: Portrait"
             loading="lazy" width="800" height="1200" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Portrait (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Portrait/portrait16.webp"
           data-title="Portrait"
@@ -515,14 +511,14 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Portrait/portrait16.webp"
-            alt="photography 1"
+            alt="Photo: Portrait"
             loading="lazy" width="800" height="1200" />
           <div class="overlay">More Detail</div>
         </div>
 
         <!-- Random Photo-->
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Toys Photography (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Random Photo/1.webp"
           data-title="Toys Photography"
@@ -530,12 +526,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Random Photo/1.webp"
-            alt="photography 1"
+            alt="Photo: Toys Photography"
             loading="lazy" width="800" height="533" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Random Photo (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Random Photo/2.webp"
           data-title="Random Photo"
@@ -543,12 +539,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Random Photo/2.webp"
-            alt="photography 1"
+            alt="Photo: Random Photo"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Random Photo (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Random Photo/3.webp"
           data-title="Random Photo"
@@ -556,12 +552,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Random Photo/3.webp"
-            alt="photography 1"
+            alt="Photo: Random Photo"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Random Photo (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Random Photo/4.webp"
           data-title="Random Photo"
@@ -569,12 +565,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Random Photo/4.webp"
-            alt="photography 1"
+            alt="Photo: Random Photo"
             loading="lazy" width="800" height="533" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Random Photo (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Random Photo/5.webp"
           data-title="Random Photo"
@@ -582,12 +578,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Random Photo/5.webp"
-            alt="photography 1"
+            alt="Photo: Random Photo"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Toys Photography (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Random Photo/6.webp"
           data-title="Toys Photography"
@@ -595,12 +591,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Random Photo/6.webp"
-            alt="photography 1"
+            alt="Photo: Toys Photography"
             loading="lazy" width="800" height="533" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Toys Photography (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Random Photo/8.webp"
           data-title="Toys Photography"
@@ -608,12 +604,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Random Photo/8.webp"
-            alt="photography 1"
+            alt="Photo: Toys Photography"
             loading="lazy" width="800" height="533" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Toys Photography (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Random Photo/9.webp"
           data-title="Toys Photography"
@@ -621,12 +617,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Random Photo/9.webp"
-            alt="photography 1"
+            alt="Photo: Toys Photography"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Toys Photography (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Random Photo/10.webp"
           data-title="Toys Photography"
@@ -634,12 +630,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Random Photo/10.webp"
-            alt="photography 1"
+            alt="Photo: Toys Photography"
             loading="lazy" width="800" height="533" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Toys Photography (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Random Photo/11.webp"
           data-title="Toys Photography"
@@ -647,12 +643,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Random Photo/11.webp"
-            alt="photography 1"
+            alt="Photo: Toys Photography"
             loading="lazy" width="800" height="533" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Toys Photography (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Random Photo/12.webp"
           data-title="Toys Photography"
@@ -660,12 +656,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Random Photo/12.webp"
-            alt="photography 1"
+            alt="Photo: Toys Photography"
             loading="lazy" width="800" height="533" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Toys Photography (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Random Photo/13.webp"
           data-title="Toys Photography"
@@ -673,12 +669,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Random Photo/13.webp"
-            alt="photography 1"
+            alt="Photo: Toys Photography"
             loading="lazy" width="800" height="533" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Toys Photography (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Random Photo/14.webp"
           data-title="Toys Photography"
@@ -686,12 +682,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Random Photo/14.webp"
-            alt="photography 1"
+            alt="Photo: Toys Photography"
             loading="lazy" width="800" height="640" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Toys Photography (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Random Photo/15.webp"
           data-title="Toys Photography"
@@ -699,12 +695,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Random Photo/15.webp"
-            alt="photography 1"
+            alt="Photo: Toys Photography"
             loading="lazy" width="800" height="640" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Toys Photography (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Random Photo/16.webp"
           data-title="Toys Photography"
@@ -712,12 +708,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Random Photo/16.webp"
-            alt="photography 1"
+            alt="Photo: Toys Photography"
             loading="lazy" width="800" height="640" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Toys Photography (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Random Photo/17.webp"
           data-title="Toys Photography"
@@ -725,12 +721,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Random Photo/17.webp"
-            alt="photography 1"
+            alt="Photo: Toys Photography"
             loading="lazy" width="800" height="640" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Toys Photography (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Random Photo/18.webp"
           data-title="Toys Photography"
@@ -738,12 +734,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Random Photo/18.webp"
-            alt="photography 1"
+            alt="Photo: Toys Photography"
             loading="lazy" width="800" height="640" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Toys Photography (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Random Photo/19.webp"
           data-title="Toys Photography"
@@ -751,12 +747,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Random Photo/19.webp"
-            alt="photography 1"
+            alt="Photo: Toys Photography"
             loading="lazy" width="800" height="640" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Random Photo (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Random Photo/20.webp"
           data-title="Random Photo"
@@ -764,12 +760,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Random Photo/20.webp"
-            alt="photography 1"
+            alt="Photo: Random Photo"
             loading="lazy" width="800" height="640" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Toys Photography (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Random Photo/21.webp"
           data-title="Toys Photography"
@@ -777,12 +773,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Random Photo/21.webp"
-            alt="photography 1"
+            alt="Photo: Toys Photography"
             loading="lazy" width="800" height="640" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Photo work: Random Photo (opens a larger view)"
           data-category="photography"
           data-src="Asset/Gallery/Photography/Random Photo/22.webp"
           data-title="Random Photo"
@@ -790,14 +786,14 @@
         >
           <img
             src="Asset/Thumb/Gallery/Photography/Random Photo/22.webp"
-            alt="photography 1"
+            alt="Photo: Random Photo"
             loading="lazy" width="800" height="1200" />
           <div class="overlay">More Detail</div>
         </div>
 
         <!-- Design-->
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Graphic design work: Poster Design (opens a larger view)"
           data-category="design"
           data-src="Asset/Gallery/Design/1.webp"
           data-title="Poster Design"
@@ -805,12 +801,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Design/1.webp"
-            alt="design Grafis 1"
+            alt="Graphic design: Poster Design"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Graphic design work: Poster Design (opens a larger view)"
           data-category="design"
           data-src="Asset/Gallery/Design/2.webp"
           data-title="Poster Design"
@@ -818,12 +814,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Design/2.webp"
-            alt="design Grafis 1"
+            alt="Graphic design: Poster Design"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Graphic design work: Poster Design (opens a larger view)"
           data-category="design"
           data-src="Asset/Gallery/Design/3.webp"
           data-title="Poster Design"
@@ -831,12 +827,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Design/3.webp"
-            alt="design Grafis 1"
+            alt="Graphic design: Poster Design"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Graphic design work: Poster Design (opens a larger view)"
           data-category="design"
           data-src="Asset/Gallery/Design/4.webp"
           data-title="Poster Design"
@@ -844,12 +840,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Design/4.webp"
-            alt="design Grafis 1"
+            alt="Graphic design: Poster Design"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Graphic design work: Poster Design (opens a larger view)"
           data-category="design"
           data-src="Asset/Gallery/Design/5.webp"
           data-title="Poster Design"
@@ -857,12 +853,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Design/5.webp"
-            alt="design Grafis 1"
+            alt="Graphic design: Poster Design"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Graphic design work: Poster Design (opens a larger view)"
           data-category="design"
           data-src="Asset/Gallery/Design/6.webp"
           data-title="Poster Design"
@@ -870,12 +866,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Design/6.webp"
-            alt="design Grafis 1"
+            alt="Graphic design: Poster Design"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Graphic design work: Poster Design (opens a larger view)"
           data-category="design"
           data-src="Asset/Gallery/Design/7.webp"
           data-title="Poster Design"
@@ -883,12 +879,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Design/7.webp"
-            alt="design Grafis 1"
+            alt="Graphic design: Poster Design"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Graphic design work: Poster Design (opens a larger view)"
           data-category="design"
           data-src="Asset/Gallery/Design/8.webp"
           data-title="Poster Design"
@@ -896,12 +892,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Design/8.webp"
-            alt="design Grafis 1"
+            alt="Graphic design: Poster Design"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Graphic design work: Poster Design (opens a larger view)"
           data-category="design"
           data-src="Asset/Gallery/Design/9.webp"
           data-title="Poster Design"
@@ -909,12 +905,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Design/9.webp"
-            alt="design Grafis 1"
+            alt="Graphic design: Poster Design"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Graphic design work: Poster Design (opens a larger view)"
           data-category="design"
           data-src="Asset/Gallery/Design/10.webp"
           data-title="Poster Design"
@@ -922,12 +918,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Design/10.webp"
-            alt="design Grafis 1"
+            alt="Graphic design: Poster Design"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Graphic design work: Poster Design (opens a larger view)"
           data-category="design"
           data-src="Asset/Gallery/Design/11.webp"
           data-title="Poster Design"
@@ -935,12 +931,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Design/11.webp"
-            alt="design Grafis 1"
+            alt="Graphic design: Poster Design"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Graphic design work: Poster Design (opens a larger view)"
           data-category="design"
           data-src="Asset/Gallery/Design/12.webp"
           data-title="Poster Design"
@@ -948,12 +944,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Design/12.webp"
-            alt="design Grafis 1"
+            alt="Graphic design: Poster Design"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Graphic design work: Poster Design (opens a larger view)"
           data-category="design"
           data-src="Asset/Gallery/Design/13.webp"
           data-title="Poster Design"
@@ -961,12 +957,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Design/13.webp"
-            alt="design Grafis 1"
+            alt="Graphic design: Poster Design"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Graphic design work: Poster Design (opens a larger view)"
           data-category="design"
           data-src="Asset/Gallery/Design/14.webp"
           data-title="Poster Design"
@@ -974,12 +970,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Design/14.webp"
-            alt="design Grafis 1"
+            alt="Graphic design: Poster Design"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Graphic design work: Poster Design (opens a larger view)"
           data-category="design"
           data-src="Asset/Gallery/Design/15.webp"
           data-title="Poster Design"
@@ -987,12 +983,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Design/15.webp"
-            alt="design Grafis 1"
+            alt="Graphic design: Poster Design"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Graphic design work: Poster Design (opens a larger view)"
           data-category="design"
           data-src="Asset/Gallery/Design/16.webp"
           data-title="Poster Design"
@@ -1000,12 +996,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Design/16.webp"
-            alt="design Grafis 1"
+            alt="Graphic design: Poster Design"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Graphic design work: Poster Design (opens a larger view)"
           data-category="design"
           data-src="Asset/Gallery/Design/17.webp"
           data-title="Poster Design"
@@ -1013,12 +1009,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Design/17.webp"
-            alt="design Grafis 1"
+            alt="Graphic design: Poster Design"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Graphic design work: Poster Design (opens a larger view)"
           data-category="design"
           data-src="Asset/Gallery/Design/18.webp"
           data-title="Poster Design"
@@ -1026,12 +1022,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Design/18.webp"
-            alt="design Grafis 1"
+            alt="Graphic design: Poster Design"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Graphic design work: Poster Design (opens a larger view)"
           data-category="design"
           data-src="Asset/Gallery/Design/19.webp"
           data-title="Poster Design"
@@ -1039,12 +1035,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Design/19.webp"
-            alt="design Grafis 1"
+            alt="Graphic design: Poster Design"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Graphic design work: Poster Design (opens a larger view)"
           data-category="design"
           data-src="Asset/Gallery/Design/20.webp"
           data-title="Poster Design"
@@ -1052,12 +1048,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Design/20.webp"
-            alt="design Grafis 1"
+            alt="Graphic design: Poster Design"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Graphic design work: Poster Design (opens a larger view)"
           data-category="design"
           data-src="Asset/Gallery/Design/21.webp"
           data-title="Poster Design"
@@ -1065,12 +1061,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Design/21.webp"
-            alt="design Grafis 1"
+            alt="Graphic design: Poster Design"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Graphic design work: Poster Design (opens a larger view)"
           data-category="design"
           data-src="Asset/Gallery/Design/22.webp"
           data-title="Poster Design"
@@ -1078,12 +1074,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Design/22.webp"
-            alt="design Grafis 1"
+            alt="Graphic design: Poster Design"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Graphic design work: Poster Design (opens a larger view)"
           data-category="design"
           data-src="Asset/Gallery/Design/23.webp"
           data-title="Poster Design"
@@ -1091,12 +1087,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Design/23.webp"
-            alt="design Grafis 1"
+            alt="Graphic design: Poster Design"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Graphic design work: Poster Design (opens a larger view)"
           data-category="design"
           data-src="Asset/Gallery/Design/24.webp"
           data-title="Poster Design"
@@ -1104,12 +1100,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Design/24.webp"
-            alt="design Grafis 1"
+            alt="Graphic design: Poster Design"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Graphic design work: Poster Design (opens a larger view)"
           data-category="design"
           data-src="Asset/Gallery/Design/25.webp"
           data-title="Poster Design"
@@ -1117,12 +1113,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Design/25.webp"
-            alt="design Grafis 1"
+            alt="Graphic design: Poster Design"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Graphic design work: Poster Design (opens a larger view)"
           data-category="design"
           data-src="Asset/Gallery/Design/26.webp"
           data-title="Poster Design"
@@ -1130,12 +1126,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Design/26.webp"
-            alt="design Grafis 1"
+            alt="Graphic design: Poster Design"
             loading="lazy" width="800" height="1000" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Graphic design work: Poster Design (opens a larger view)"
           data-category="design"
           data-src="Asset/Gallery/Design/27.webp"
           data-title="Poster Design"
@@ -1143,12 +1139,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Design/27.webp"
-            alt="design Grafis 1"
+            alt="Graphic design: Poster Design"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Graphic design work: Poster Design (opens a larger view)"
           data-category="design"
           data-src="Asset/Gallery/Design/28.webp"
           data-title="Poster Design"
@@ -1156,12 +1152,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Design/28.webp"
-            alt="design Grafis 1"
+            alt="Graphic design: Poster Design"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Graphic design work: Poster Design (opens a larger view)"
           data-category="design"
           data-src="Asset/Gallery/Design/29.webp"
           data-title="Poster Design"
@@ -1169,12 +1165,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Design/29.webp"
-            alt="design Grafis 1"
+            alt="Graphic design: Poster Design"
             loading="lazy" width="800" height="889" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Graphic design work: Poster Design (opens a larger view)"
           data-category="design"
           data-src="Asset/Gallery/Design/30.webp"
           data-title="Poster Design"
@@ -1182,12 +1178,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Design/30.webp"
-            alt="design Grafis 1"
+            alt="Graphic design: Poster Design"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Graphic design work: Poster Design (opens a larger view)"
           data-category="design"
           data-src="Asset/Gallery/Design/31.webp"
           data-title="Poster Design"
@@ -1195,12 +1191,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Design/31.webp"
-            alt="design Grafis 1"
+            alt="Graphic design: Poster Design"
             loading="lazy" width="800" height="1109" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Graphic design work: Poster Design (opens a larger view)"
           data-category="design"
           data-src="Asset/Gallery/Design/32.webp"
           data-title="Poster Design"
@@ -1208,12 +1204,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Design/32.webp"
-            alt="design Grafis 1"
+            alt="Graphic design: Poster Design"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Graphic design work: Poster Design (opens a larger view)"
           data-category="design"
           data-src="Asset/Gallery/Design/33.webp"
           data-title="Poster Design"
@@ -1221,12 +1217,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Design/33.webp"
-            alt="design Grafis 1"
+            alt="Graphic design: Poster Design"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Graphic design work: Poster Design (opens a larger view)"
           data-category="design"
           data-src="Asset/Gallery/Design/34.webp"
           data-title="Poster Design"
@@ -1234,12 +1230,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Design/34.webp"
-            alt="design Grafis 1"
+            alt="Graphic design: Poster Design"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Graphic design work: Poster Design (opens a larger view)"
           data-category="design"
           data-src="Asset/Gallery/Design/35.webp"
           data-title="Poster Design"
@@ -1247,12 +1243,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Design/35.webp"
-            alt="design Grafis 1"
+            alt="Graphic design: Poster Design"
             loading="lazy" width="800" height="800" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Graphic design work: Poster Design (opens a larger view)"
           data-category="design"
           data-src="Asset/Gallery/Design/36.webp"
           data-title="Poster Design"
@@ -1260,14 +1256,14 @@
         >
           <img
             src="Asset/Thumb/Gallery/Design/36.webp"
-            alt="design Grafis 1"
+            alt="Graphic design: Poster Design"
             loading="lazy" width="800" height="1000" />
           <div class="overlay">More Detail</div>
         </div>
 
         <!-- Item video -->
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Video work: A Fishermen&#x27;s Life - A Sea of Thieves Short Video (opens a larger view)"
           data-category="video"
           data-video-src="Asset/Gallery/Video/A%20Fishermen%27s%20Life.webm"
           data-title="A Fishermen's Life - A Sea of Thieves Short Video"
@@ -1275,12 +1271,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Video/Thumb/Fishermen.webp"
-            alt="Video Editing 1"
+            alt="Video: A Fishermen&#x27;s Life - A Sea of Thieves Short Video"
             loading="lazy" width="800" height="450" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Video work: Time Has Flown By So Fast (opens a larger view)"
           data-category="video"
           data-video-src="Asset/Gallery/Video/Cinematic.webm"
           data-title="Time Has Flown By So Fast"
@@ -1288,12 +1284,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Video/Thumb/Time.webp"
-            alt="Video Editing 1"
+            alt="Video: Time Has Flown By So Fast"
             loading="lazy" width="800" height="367" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Video work: A Thousand Years (opens a larger view)"
           data-category="video"
           data-video-src="Asset/Gallery/Video/Sine%20hijab.webm"
           data-title="A Thousand Years"
@@ -1301,12 +1297,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Video/Thumb/Hijab.webp"
-            alt="Video Editing 1"
+            alt="Video: A Thousand Years"
             loading="lazy" width="800" height="369" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Video work: Spinnin&#x27; Around (opens a larger view)"
           data-category="video"
           data-video-src="Asset/Gallery/Video/Sine.webm"
           data-title="Spinnin' Around"
@@ -1314,12 +1310,12 @@
         >
           <img
             src="Asset/Thumb/Gallery/Video/Thumb/Cine.webp"
-            alt="Video Editing 1"
+            alt="Video: Spinnin&#x27; Around"
             loading="lazy" width="800" height="370" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Video work: Spinnin&#x27; Around (opens a larger view)"
           data-category="video"
           data-video-src="Asset/Gallery/Video/Ucing.webm"
           data-title="Spinnin' Around"
@@ -1327,98 +1323,98 @@
         >
           <img
             src="Asset/Thumb/Gallery/Video/Thumb/Cat.webp"
-            alt="Video Editing 1"
+            alt="Video: Spinnin&#x27; Around"
             loading="lazy" width="800" height="369" />
           <div class="overlay">More Detail</div>
         </div>
 
         <!-- Contoh item game lainnya -->
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Game work: Meowteor Protector (opens a larger view)"
           data-category="game"
           data-src="Asset/Gallery/Game/1.webp"
           data-title="Meowteor Protector"
           data-game-url="https://acinolynx.github.io/Meowteor-Protector/"
           data-aos="fade-up"
         >
-          <img src="Asset/Thumb/Gallery/Game/1.webp" alt="Game 1" loading="lazy" width="800" height="450" />
+          <img src="Asset/Thumb/Gallery/Game/1.webp" alt="Game: Meowteor Protector" loading="lazy" width="800" height="450" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Game work: Jeritan Jiwa (opens a larger view)"
           data-category="game"
           data-src="Asset/Gallery/Game/2.webp"
           data-title="Jeritan Jiwa"
           data-game-url="https://acinolynx.github.io/Jeritan-Jiwa/"
           data-aos="fade-up"
         >
-          <img src="Asset/Thumb/Gallery/Game/2.webp" alt="Game 2" loading="lazy" width="800" height="450" />
+          <img src="Asset/Thumb/Gallery/Game/2.webp" alt="Game: Jeritan Jiwa" loading="lazy" width="800" height="450" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Game work: ABC Scream Challenge (opens a larger view)"
           data-category="game"
           data-src="Asset/Gallery/Game/3.webp"
           data-title="ABC Scream Challenge"
           data-game-url="https://acinolynx.github.io/ABC-Scream-Challenge-Game/"
           data-aos="fade-up"
         >
-          <img src="Asset/Thumb/Gallery/Game/3.webp" alt="Game 3" loading="lazy" width="800" height="450" />
+          <img src="Asset/Thumb/Gallery/Game/3.webp" alt="Game: ABC Scream Challenge" loading="lazy" width="800" height="450" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Game work: Monster Mash (opens a larger view)"
           data-category="game"
           data-src="Asset/Gallery/Game/4.webp"
           data-title="Monster Mash"
           data-game-url="https://acinolynx.github.io/Monster-Mash/"
           data-aos="fade-up"
         >
-          <img src="Asset/Thumb/Gallery/Game/4.webp" alt="Game 4" loading="lazy" width="800" height="450" />
+          <img src="Asset/Thumb/Gallery/Game/4.webp" alt="Game: Monster Mash" loading="lazy" width="800" height="450" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Game work: Saksi Kata (opens a larger view)"
           data-category="game"
           data-src="Asset/Gallery/Game/5.webp"
           data-title="Saksi Kata"
           data-game-url="https://acinolynx.github.io/Saksi-Kata/"
           data-aos="fade-up"
         >
-          <img src="Asset/Thumb/Gallery/Game/5.webp" alt="Game 5" loading="lazy" width="800" height="450" />
+          <img src="Asset/Thumb/Gallery/Game/5.webp" alt="Game: Saksi Kata" loading="lazy" width="800" height="450" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Game work: Connect Four (opens a larger view)"
           data-category="game"
           data-src="Asset/Gallery/Game/6.webp"
           data-title="Connect Four"
           data-game-url="https://acinolynx.github.io/Connect-Four/"
           data-aos="fade-up"
         >
-          <img src="Asset/Thumb/Gallery/Game/6.webp" alt="Game 6" loading="lazy" width="800" height="450" />
+          <img src="Asset/Thumb/Gallery/Game/6.webp" alt="Game: Connect Four" loading="lazy" width="800" height="450" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Game work: SMASH! (opens a larger view)"
           data-category="game"
           data-src="Asset/Gallery/Game/7.webp"
           data-title="SMASH!"
           data-game-url="https://acinolynx.github.io/SMASH/"
           data-aos="fade-up"
         >
-          <img src="Asset/Thumb/Gallery/Game/7.webp" alt="Game 7" loading="lazy" width="800" height="450" />
+          <img src="Asset/Thumb/Gallery/Game/7.webp" alt="Game: SMASH!" loading="lazy" width="800" height="450" />
           <div class="overlay">More Detail</div>
         </div>
-        <div
-          class="gallery-item"
+        <div class="gallery-item" role="button" tabindex="0"
+          aria-label="Game work: Pixel Leap (WiP) (opens a larger view)"
           data-category="game"
           data-src="Asset/Gallery/Game/8.webp"
           data-title="Pixel Leap (WiP)"
           data-game-url=""
           data-aos="fade-up"
         >
-          <img src="Asset/Thumb/Gallery/Game/8.webp" alt="Game 8" loading="lazy" width="800" height="450" />
+          <img src="Asset/Thumb/Gallery/Game/8.webp" alt="Game: Pixel Leap (WiP)" loading="lazy" width="800" height="450" />
           <div class="overlay">More Detail</div>
         </div>
       </div>
@@ -1496,8 +1492,8 @@
     </button>
 
     <!-- Lightbox Structure (Hidden by default) -->
-    <div id="lightbox" class="lightbox">
-      <span class="lightbox-close">&times;</span>
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
+      <button type="button" class="lightbox-close" aria-label="Close viewer">&times;</button>
       <div class="lightbox-content">
         <img src="" alt="Lightbox Image" class="lightbox-image" />
         <video
@@ -1507,7 +1503,7 @@
           preload="none"
         ></video>
         <div class="lightbox-caption">
-          <h3 class="lightbox-title"></h3>
+          <h3 class="lightbox-title" id="lightbox-title"></h3>
           <p class="lightbox-desc"></p>
           <a
             class="lightbox-play-btn"
