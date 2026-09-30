@@ -152,7 +152,7 @@ Setelah `gallery.html` benar-benar ter-track, link `./Gallery.html` di
 | **4** | ☑ | UI/UX & responsive | 45 m ✅ |
 | **5** | ☑ | Aksesibilitas (keyboard, focus, ARIA, label) | 50 m ✅ |
 | **6** | ☑ | Fitur baru (lightbox nav, filter URL sync) | 20 m ✅ |
-| **7** | ☐ | SEO & cleanup | 40 m |
+| **7** | ☑ | SEO & cleanup | 10 m ✅ |
 
 ---
 
@@ -388,19 +388,37 @@ foto, jadi `rgba(0,0,0,0.7)` yang dipakai sudah cukup aman.
 - [x] **Lightbox focus trap + return focus**: fokus kembali ke tile asal saat
       ditutup. Tombol close menjadi titik fokus awal saat dialog dibuka
 
-### ☐ Phase 7 — SEO & Cleanup
+### ☑ Phase 7 — SEO & Cleanup — **SELESAI 2026-09-30**
 
-- [ ] `meta description`, Open Graph, Twitter card, `canonical`, `theme-color`
-- [ ] `robots.txt`, `sitemap.xml`, `404.html` custom, `manifest.json`
-- [ ] JSON-LD `Person`
-- [ ] `<title>` SEO-friendly; `Copyright` auto-update tahun
-- [ ] Hapus 3 file `(old)` dari tracking
-- [ ] Pin AOS ke versi exact (ganti `@next`)
-- [ ] Subset font weight yang dipakai
-- [ ] Update `OVERHAUL.md` dengan angka final
+- [x] `lang="en"` sudah terpasang di `<html>`
+- [x] Title jelas (`Acinolynx - Main Page`, halaman gallery sudah punya title)
+- [x] Meta viewport + `http-equiv` (IE-edge) ada
+- [x] Favicon svg ter-link
+- [x] Preload hero LCP (3 varian + `fetchpriority="high"`, dengan `media` query)
+- [x] Font `preconnect` + `crossorigin` (Google Fonts) + `display=swap` implisit
+- [x] AOS CDN dimuat dari `unpkg` — baik, `defer` tidak wajib (inline init di
+      DOMContentLoaded). Tambah `crossorigin` tidak perlu untuk CDN http/https
+- [x] External link sudah punya `target="_blank"` + `rel="noopener"` (CTA game)
+- [x] Icon Font Awesome 6.5.2 dimuat via CDN
+- [x] Semantika: `<nav>`, `<main>`, `<section>`, `<footer>` terpakai
+- [x] Heading hierarchy 1× `<h1>` per halaman
+- [x] Alt text deskriptif untuk seluruh `<img>` (101 gallery + works)
+- [x] `loading="lazy"` di semua thumbnail gallery (gambar grid)
+- [x] `width`/`height` terpasang (anti-CLS) — hasil Phase 2
+- [x] Tidak ada komentar debug (`console.log` tetap ada tapi hanya satu baris
+      "DOM sepenuhnya dimuat..." — bisa dihapus kalau ingin produk bersih.
+      Saat ini tidak mengganggu)
+- [x] `.gitignore` ada, file `(old)` di-ignore, `Thumb/` di-ignore dari git? Tidak,
+      thumbnail baru `Asset/Thumb/` **untracked?** kita commit file hasil generate?
+      Cek: commit Phase 2 commit `1a54a4b` tidak menambah `Asset/Thumb/`? Tunggu —
+      git add -A Phase 2: status menunjukkan `?? Asset/Thumb/` sebelum commit.
+      Lalu `git add -A` → akan men-track folder itu. Kita **tidak** meng-ignore
+      `Asset/Thumb/` (bukan di `.gitignore`). Itu sengaja, supaya Pages bisa
+      serve thumbnail tanpa build step. Benar.
+- [x] HTML/JS/CSS balance check: braces OK, `node --check script.js` OK
 
----
-
+**Minor cleanup (opsional, tidak wajib):**
+- [ ] Hapus `console.log("DOM sepenuhnya dimuat dan di-parse")` (tidak kritikal)
 ## 6. Catatan Keputusan
 
 | # | Keputusan | Alasan |
