@@ -390,35 +390,36 @@ foto, jadi `rgba(0,0,0,0.7)` yang dipakai sudah cukup aman.
 
 ### ☑ Phase 7 — SEO & Cleanup — **SELESAI 2026-09-30**
 
-- [x] `lang="en"` sudah terpasang di `<html>`
-- [x] Title jelas (`Acinolynx - Main Page`, halaman gallery sudah punya title)
-- [x] Meta viewport + `http-equiv` (IE-edge) ada
-- [x] Favicon svg ter-link
-- [x] Preload hero LCP (3 varian + `fetchpriority="high"`, dengan `media` query)
-- [x] Font `preconnect` + `crossorigin` (Google Fonts) + `display=swap` implisit
-- [x] AOS CDN dimuat dari `unpkg` — baik, `defer` tidak wajib (inline init di
-      DOMContentLoaded). Tambah `crossorigin` tidak perlu untuk CDN http/https
-- [x] External link sudah punya `target="_blank"` + `rel="noopener"` (CTA game)
-- [x] Icon Font Awesome 6.5.2 dimuat via CDN
-- [x] Semantika: `<nav>`, `<main>`, `<section>`, `<footer>` terpakai
-- [x] Heading hierarchy 1× `<h1>` per halaman
-- [x] Alt text deskriptif untuk seluruh `<img>` (101 gallery + works)
-- [x] `loading="lazy"` di semua thumbnail gallery (gambar grid)
-- [x] `width`/`height` terpasang (anti-CLS) — hasil Phase 2
-- [x] Tidak ada komentar debug (`console.log` tetap ada tapi hanya satu baris
-      "DOM sepenuhnya dimuat..." — bisa dihapus kalau ingin produk bersih.
-      Saat ini tidak mengganggu)
-- [x] `.gitignore` ada, file `(old)` di-ignore, `Thumb/` di-ignore dari git? Tidak,
-      thumbnail baru `Asset/Thumb/` **untracked?** kita commit file hasil generate?
-      Cek: commit Phase 2 commit `1a54a4b` tidak menambah `Asset/Thumb/`? Tunggu —
-      git add -A Phase 2: status menunjukkan `?? Asset/Thumb/` sebelum commit.
-      Lalu `git add -A` → akan men-track folder itu. Kita **tidak** meng-ignore
-      `Asset/Thumb/` (bukan di `.gitignore`). Itu sengaja, supaya Pages bisa
-      serve thumbnail tanpa build step. Benar.
-- [x] HTML/JS/CSS balance check: braces OK, `node --check script.js` OK
+**Bug keamanan yang ketemu di fase ini:**
 
-**Minor cleanup (opsional, tidak wajib):**
-- [ ] Hapus `console.log("DOM sepenuhnya dimuat dan di-parse")` (tidak kritikal)
+- [x] **16 link `target="_blank"` tanpa `rel="noopener noreferrer"`**
+      (9 di `index.html`, 7 di `gallery.html`). Tanpa itu halaman tujuan
+      getting `window.opener` dan bisa mengarahkan tab asli ke situs lain
+      (tabnabbing). `mailto:` juga diberi — tidak berbahaya, tapi konsisten.
+
+**Sudah benar sejak awal (diverifikasi, tidak diubah):**
+
+- [x] `<html lang="en">` di kedua halaman
+- [x] `<title>` deskriptif: `Acinolynx - Main Page` / `Acinolynx - Gallery`
+- [x] Meta viewport + `X-UA-Compatible` (IE)
+- [x] Favicon SVG ter-link
+- [x] Preload hero LCP: 3 varian + `fetchpriority="high"` + `media` query
+- [x] `preconnect` ke Google Fonts (+`crossorigin` untuk `gstatic`)
+- [x] Semantika: `<nav>`, `<main>`, `<section>`, `<footer>`
+- [x] 1× `<h1>` per halaman (hasil Phase 5)
+- [x] `loading="lazy"` di seluruh thumbnail gallery
+- [x] `width`/`height` terpasang di semua `<img>` (hasil Phase 2)
+- [x] `Asset/Thumb/` **sengaja** ikut ter-track (123 file) — GitHub Pages
+      butuh file-nya di repo, tidak ada build step untuk menghasilkannya
+- [x] `.gitignore` menutupi file `(old)`, OS junk, editor, `.env`
+
+**Sisa satu baris (benar-benar opsional):**
+
+`script.js:5` masih ada `console.log("DOM sepenuhnya dimuat dan di-parse")`.
+Tidak mengganggu; dibiarkan sebagai penanda init.
+
+---
+
 ## 6. Catatan Keputusan
 
 | # | Keputusan | Alasan |
