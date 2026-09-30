@@ -41,6 +41,61 @@ p {
   line-height: 28px;
 }
 
+/* ====================================================== */
+/* == BUTTON GLOBAL == */
+/* ====================================================== */
+/* Class .btn dipakai di hero, "See more?", dan form.
+   Sebelumnya hanya ada di dalam scope .header .box / .form-box form,
+   sehingga <a class="btn"> di section Works tidak mendapat style sama sekali
+   dan tampil seperti teks biasa. */
+
+.btn {
+  display: inline-block;
+  padding: 10px 30px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-transform: capitalize;
+  text-align: center;
+  width: fit-content;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease, color 0.3s ease;
+}
+
+/* --- Varian terang (default, untuk section gelap) --- */
+.btn-light {
+  color: #333333;
+  background-color: #f7f7f7;
+}
+
+.btn-light:hover {
+  color: #1b1b1b;
+  background-color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Varian gelap (untuk section terang) --- */
+.btn-dark {
+  color: #f7f7f7;
+  background-color: #1b1b1b;
+  border-color: #1b1b1b;
+}
+
+.btn-dark:hover {
+  background-color: #333333;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Fokus keyboard harus selalu terlihat */
+.btn:focus-visible {
+  outline: 3px solid #4d90fe;
+  outline-offset: 3px;
+}
+
 .navbar {
   position: absolute;
   top: 0;
@@ -158,69 +213,25 @@ p {
   gap: 1rem;
 }
 
+/* Tombol hero: sisanya mewarisi .btn + .btn-light global.
+   Efek garis bawah (::after) sengaja dihapus — itu pola link teks,
+   bukan tombol, dan membuat tampilan heroinya ramai. */
 .header .box .btn {
   margin-top: 1rem;
-  padding: 10px 30px;
-  font-size: 16px;
-  font-weight: 500;
-  color: #333333;
-  background-color: #f7f7f7;
-  width: fit-content;
-  text-transform: capitalize;
 }
 
-.header .box .btn {
-  position: relative;
-  text-decoration: none;
+/* Tombol "See more?" di section Works.
+   Rule .works ul a / .works ul li di bawah sengaja dibiarkan tidak menimpa
+   properti .btn global, supaya tombol ini benar-benar tampil seperti tombol. */
+.works .btn {
+  padding: 12px 36px;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
-.header .box .btn::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  bottom: -2px;
-  left: 0;
-  background-color: #333333;
-  transform: scaleX(0);
-  transform-origin: bottom right;
-  transition: transform 0.3s ease;
-}
-
-.header .box .btn:hover {
-  color: #444;
-  background-color: #f7f7f7;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.header .box .btn:hover::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-}
-
-/* Apply same animation to work section buttons */
-.works ul a {
-  position: relative;
-  text-decoration: none;
-}
-
-.works ul a::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  bottom: -2px;
-  left: 0;
-  background-color: #f7f7f7;
-  transform: scaleX(0);
-  transform-origin: bottom right;
-  transition: transform 0.3s ease;
-}
-
-.works ul a:hover::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
+.works .btn::after {
+  content: none; /* buang efek garis bawah link */
 }
 
 /* Apply same animation to navbar links */
@@ -399,41 +410,16 @@ section .heading {
   text-align: center;
 }
 
+/* Wrapper list untuk tombol "See more?".
+   Styling tipografi sengaja dihapus agar .btn global yang menentukan
+   tampilan (dulunya .works ul a menimpa .btn karena specificity lebih tinggi). */
 .works ul {
   list-style: none;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   padding: 1rem 0rem;
   gap: 1rem;
-  color: #f7f7f7;
-}
-
-.works ul li {
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 25px;
-  padding: 10px 4px;
-  color: #f7f7f7;
-  text-transform: capitalize;
-  cursor: pointer;
-  border-bottom: 1px solid transparent;
-}
-
-.works ul a {
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 25px;
-  padding: 10px 4px;
-  color: #f7f7f7;
-  text-transform: capitalize;
-  cursor: pointer;
-  border-bottom: 1px solid transparent;
-}
-
-.works ul li.active,
-.works ul li:hover {
-  color: #f7f7f7;
 }
 
 /* Add animation to footer links */
@@ -656,7 +642,8 @@ section .heading {
 }
 
 .form-box form .btn {
-  padding: 0.75rem 0rem;
+  width: 100%; /* override width:fit-content dari .btn global */
+  padding: 0.75rem 1rem;
   background-color: #f7f7f7;
   color: #333333;
   font-size: 18px;

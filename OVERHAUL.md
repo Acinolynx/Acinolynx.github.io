@@ -144,7 +144,7 @@ Setelah `gallery.html` benar-benar ter-track, link `./Gallery.html` di
 
 | Phase | Status | Isi | Estimasi |
 |---|---|---|---|
-| **0** | ☐ | Amankan repo: `core.ignorecase`, commit baseline, tag, `.gitignore` | 5 m |
+| **0** | ☑ | Amankan repo: `core.ignorecase`, commit baseline, tag, `.gitignore` | 5 m ✅ |
 | **1** | ☐ | P0: bug pemblokir (link case, `.btn`, video, asset 404) | 40 m |
 | **2** | ☐ | Optimasi gambar (thumbnail, compress, anti-CLS) | 30 m |
 | **3** | ☐ | `git gc --aggressive` | 15 m |
@@ -157,16 +157,24 @@ Setelah `gallery.html` benar-benar ter-track, link `./Gallery.html` di
 
 ## 5. Detail Per Phase
 
-### ☐ Phase 0 — Amankan Repo *(WAJIB, kerjakan duluan)*
+### ☑ Phase 0 — Amankan Repo *(WAJIB, kerjakan duluan)* — **SELESAI 2026-09-30**
 
-- [ ] `git config core.ignorecase false` → kunci sensitivitas case
-- [ ] `git add -A` → pastikan `gallery.html` ter-track (harusnya jadi rename, bukan delete)
-- [ ] Verifikasi `git status` → tidak boleh ada `D Gallery.html` tanpa pasangan
-- [ ] Commit baseline (termasuk perubahan `index.html` 2 baris)
-- [ ] `git tag pre-overhaul` → titik rollback
-- [ ] Tulis `.gitignore`
+- [x] `git config core.ignorecase false` → kunci sensitivitas case
+- [x] `git add -A` → `gallery.html` ter-track sebagai **rename** (`R Gallery.html -> gallery.html`)
+- [x] Verifikasi `git status` → working tree bersih (0 perubahan)
+- [x] Commit baseline → `3908dad`
+- [x] `git tag pre-overhaul` → titik rollback
+- [x] Tulis `.gitignore`
+- [x] `git rm --cached` 3 file `(old)` → tetap di disk, kini **tidak** ikut deploy
 
 **Rollback:** `git reset --hard pre-overhaul`
+
+**Catatan tambahan:** saat Phase 0 dilakukan, ternyata `.gitignore` **tidak langsung
+berfungsi** untuk file `(old)` karena ketiganya sudah ter-track (gitignore hanya berlaku
+untuk file untracked). Solusinya `git rm --cached` — ini dipindahkan dari Phase 7 ke
+Phase 0 karena tanpa itu `.gitignore` jadi tidak berguna. File tetap ada di disk ✅
+
+**Status `.git`:** masih 1.8 GB — akan ditangani di Phase 3.
 
 ### ☐ Phase 1 — P0: Bug PembLocker
 

@@ -196,7 +196,7 @@
         <div
           class="gallery-item"
           data-category="photography"
-          data-src="Asset/Gallery/Photography/Nature8.webp"
+          data-src="Asset/Gallery/Photography/Nature/8.webp"
           data-title="Nature/Landscape"
           data-aos="fade-up"
         >
@@ -1353,7 +1353,7 @@
         <div
           class="gallery-item"
           data-category="video"
-          data-video-src="Asset/Gallery/Video/A Fishermen's Life.webm"
+          data-video-src="Asset/Gallery/Video/A%20Fishermen%27s%20Life.webm"
           data-title="A Fishermen's Life - A Sea of Thieves Short Video"
           data-aos="fade-up"
         >
@@ -1381,7 +1381,7 @@
         <div
           class="gallery-item"
           data-category="video"
-          data-video-src="Asset/Gallery/Video/Sine Hijab.webm"
+          data-video-src="Asset/Gallery/Video/Sine%20hijab.webm"
           data-title="A Thousand Years"
           data-aos="fade-up"
         >
@@ -1580,8 +1580,8 @@
     </footer>
 
     <!-- Scroll-to-top Button -->
-    <button id="scroll-top-btn" title="Scroll to top">
-      <a href="#"><i class="fas fa-arrow-up"></i></a>
+    <button id="scroll-top-btn" type="button" title="Scroll to top" aria-label="Scroll to top">
+      <i class="fas fa-arrow-up"></i>
     </button>
 
     <!-- Lightbox Structure (Hidden by default) -->
@@ -1589,16 +1589,12 @@
       <span class="lightbox-close">&times;</span>
       <div class="lightbox-content">
         <img src="" alt="Lightbox Image" class="lightbox-image" />
-        <iframe
+        <video
           class="lightbox-video"
-          width="560"
-          height="315"
-          src=""
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-        ></iframe>
+          controls
+          playsinline
+          preload="none"
+        ></video>
         <div class="lightbox-caption">
           <h3 class="lightbox-title"></h3>
           <p class="lightbox-desc"></p>

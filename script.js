@@ -111,18 +111,22 @@ function initLightbox() {
       const category = item.getAttribute("data-category"); // Ambil kategori
       const gameUrl = item.getAttribute("data-game-url"); // Ambil URL game
 
-      // Reset display
+      // Reset tampilan
       lightboxImage.style.display = "none";
       lightboxVideo.style.display = "none";
       lightboxPlayBtn.style.display = "none"; // Sembunyikan tombol play secara default
-      lightboxImage.src = "";
-      lightboxVideo.src = "";
+      lightboxImage.removeAttribute("src");
+      lightboxVideo.removeAttribute("src");
+      lightboxVideo.load(); // Putuskan koneksi jaringan ke video
       lightboxPlayBtn.href = "#"; // Reset href tombol play
 
       if (videoSrc) {
         // Tampilkan video
         lightboxVideo.src = videoSrc;
         lightboxVideo.style.display = "block";
+        lightboxVideo.play().catch(() => {
+          /* autoplay ditolak browser — user tetap bisa tekan play manual */
+        });
       } else if (imgSrc) {
         // Tampilkan gambar
         lightboxImage.src = imgSrc;
@@ -149,9 +153,11 @@ function initLightbox() {
   function closeLightbox() {
     lightbox.classList.remove("active");
     document.body.style.overflow = ""; // Kembalikan scroll body
-    // Hentikan video saat ditutup
-    lightboxVideo.src = "";
-    lightboxImage.src = "";
+    // Hentikan dan lepaskan video saat ditutup
+    lightboxVideo.pause();
+    lightboxVideo.removeAttribute("src");
+    lightboxVideo.load();
+    lightboxImage.removeAttribute("src");
     lightboxPlayBtn.style.display = "none"; // Sembunyikan tombol play saat lightbox ditutup
     lightboxPlayBtn.href = "#"; // Reset href saat ditutup
   }
