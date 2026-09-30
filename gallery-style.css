@@ -914,3 +914,57 @@ footer {
     scroll-behavior: auto !important;
   }
 }
+
+/* ---------- Navigasi lightbox (prev / next) ---------- */
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1001;
+  padding: 0.25rem 0.9rem;
+  background: rgba(0, 0, 0, 0.35);
+  border: 0;
+  border-radius: 6px;
+  color: #fff;
+  font-family: "Rubik", sans-serif;
+  font-size: 52px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.lightbox-nav:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.lightbox-nav:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
+.lightbox-prev {
+  left: 18px;
+}
+
+.lightbox-next {
+  right: 18px;
+}
+
+/* [hidden] beaten oleh display:flex, jadi harus eksplisit */
+.lightbox-nav[hidden] {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .lightbox-nav {
+    font-size: 38px;
+    padding: 0.2rem 0.7rem;
+  }
+  .lightbox-prev {
+    left: 6px;
+  }
+  .lightbox-next {
+    right: 6px;
+  }
+}

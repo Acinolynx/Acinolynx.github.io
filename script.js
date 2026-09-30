@@ -3,10 +3,22 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM sepenuhnya dimuat dan di-parse");
-  initAOS();
-  initGalleryFilter();
-  initLightbox();
-  initScrollTopButton(); // Panggil di sini, tetap global
+  // Setiap init dibungkus sendiri: AOS datang dari CDN, dan kalau CDN itu
+  // gagal (offline, adblock, outage) seluruh halaman ini harus tetap punya
+  // filter + lightbox. Sebelumnya initAOS() melempar ReferenceError dan
+  // membatalkan dua init setelahnya.
+  for (const [name, fn] of [
+    ["AOS", initAOS],
+    ["gallery filter", initGalleryFilter],
+    ["lightbox", initLightbox],
+    ["scroll-top", initScrollTopButton],
+  ]) {
+    try {
+      fn();
+    } catch (err) {
+      console.error(`init ${name} gagal:`, err);
+    }
+  }
 });
 
 // --- Fungsi Inisialisasi AOS ---
@@ -48,31 +60,49 @@ function initGalleryFilter() {
 
   const galleryItems = galleryGrid.querySelectorAll(".gallery-item");
 
-  filterContainer.addEventListener("click", (e) => {
-    if (e.target.classList.contains("filter-btn")) {
-      filterContainer.querySelector(".active")?.classList.remove("active");
-      e.target.classList.add("active");
-      filterContainer
-        .querySelectorAll(".filter-btn")
-        .forEach((b) => b.setAttribute("aria-pressed", String(b === e.target)));
+  function applyFilter(filterValue, { pushUrl = false } = {}) {
+    const btn = filterContainer.querySelector(`[data-filter="${filterValue}"]`);
+    if (!btn) return;
 
-      const filterValue = e.target.getAttribute("data-filter");
-
-      galleryItems.forEach((item) => {
-        const itemCategory = item.getAttribute("data-category");
-
-        if (filterValue === "all" || itemCategory === filterValue) {
-          item.style.display = "block";
-          item.classList.remove("hidden");
-          item.classList.add("visible");
-        } else {
-          item.style.display = "none";
-          item.classList.remove("visible");
-          item.classList.add("hidden");
-        }
+    filterContainer
+      .querySelectorAll(".filter-btn")
+      .forEach((b) => {
+        const on = b === btn;
+        b.classList.toggle("active", on);
+        b.setAttribute("aria-pressed", String(on));
       });
+
+    galleryItems.forEach((item) => {
+      const show = filterValue === "all" || item.getAttribute("data-category") === filterValue;
+      item.style.display = show ? "block" : "none";
+      item.classList.toggle("hidden", !show);
+      item.classList.toggle("visible", show);
+    });
+
+    if (pushUrl) {
+      const url = filterValue === "all"
+        ? location.pathname
+        : `${location.pathname}#filter=${filterValue}`;
+      history.pushState({ filter: filterValue }, "", url);
     }
+  }
+
+  filterContainer.addEventListener("click", (e) => {
+    const btn = e.target.closest(".filter-btn");
+    if (btn) applyFilter(btn.getAttribute("data-filter"), { pushUrl: true });
   });
+
+  // Baca #filter= dari URL saat load, supaya link galeri bisa di-share.
+  function filterFromUrl() {
+    const m = location.hash.match(/filter=([a-z]+)/i);
+    const value = m ? m[1].toLowerCase() : "all";
+    return filterContainer.querySelector(`[data-filter="${value}"]`) ? value : "all";
+  }
+
+  applyFilter(filterFromUrl());
+
+  window.addEventListener("hashchange", () => applyFilter(filterFromUrl()));
+  window.addEventListener("popstate", () => applyFilter(filterFromUrl()));
 
   const style = document.createElement("style");
   style.textContent = `
@@ -103,12 +133,33 @@ function initLightbox() {
   const lightboxDesc = lightbox.querySelector(".lightbox-desc");
   const lightboxPlayBtn = lightbox.querySelector(".lightbox-play-btn"); // Ambil tombol play
   const closeBtn = lightbox.querySelector(".lightbox-close");
-  const galleryItems = document.querySelectorAll(".gallery-item");
+  const prevBtn = lightbox.querySelector(".lightbox-prev");
+  const nextBtn = lightbox.querySelector(".lightbox-next");
+  const galleryItems = [...document.querySelectorAll(".gallery-item")];
 
   let lastFocused = null;
+  let currentIndex = -1;
 
-  function openItem(item) {
+  // Hanya item yang lolos filter yang boleh dinavigasi. Kalau tidak, user
+  // menekan panah dan melompat ke kategori yang sedang disembunyikan.
+  function visibleItems() {
+    return galleryItems.filter((el) => !el.classList.contains("hidden"));
+  }
+
+  function step(delta) {
+    const list = visibleItems();
+    if (!list.length) return;
+    const pos = list.indexOf(lastFocused);
+    const next = list[(pos + delta + list.length) % list.length];
+    if (next) openItem(next, { moveFocus: true });
+  }
+
+  prevBtn.addEventListener("click", () => step(-1));
+  nextBtn.addEventListener("click", () => step(1));
+
+  function openItem(item, opts = {}) {
     lastFocused = item;
+    currentIndex = galleryItems.indexOf(item);
       const imgSrc = item.getAttribute("data-src");
       const videoSrc = item.getAttribute("data-video-src");
       const title = item.getAttribute("data-title") || ""; // Default ke string kosong
@@ -129,9 +180,19 @@ function initLightbox() {
         // Tampilkan video
         lightboxVideo.src = videoSrc;
         lightboxVideo.style.display = "block";
-        lightboxVideo.play().catch(() => {
-          /* autoplay ditolak browser — user tetap bisa tekan play manual */
-        });
+        // Autoplay dipisahkan dari langkah tampil: kalau play() melempar, lightbox
+        // tetap harus terbuka. Sebelumnya satu error di sini membatalkan
+        // seluruh openItem sehingga lightbox tidak pernah muncul.
+        try {
+          const p = lightboxVideo.play();
+          if (p && typeof p.catch === "function") {
+            p.catch(() => {
+              /* autoplay ditolak browser — user tetap bisa tekan play manual */
+            });
+          }
+        } catch (_) {
+          /* play() tidak didukung — video tetap bisa diputar manual */
+        }
       } else if (imgSrc) {
         // Tampilkan gambar
         lightboxImage.src = imgSrc;
@@ -151,7 +212,12 @@ function initLightbox() {
       // Tampilkan lightbox
       lightbox.classList.add("active");
       document.body.style.overflow = "hidden"; // Cegah scroll body saat lightbox aktif
-      closeBtn.focus();
+      if (opts.moveFocus) item.focus();
+      else closeBtn.focus();
+
+      const onlyOne = visibleItems().length < 2;
+      prevBtn.hidden = nextBtn.hidden = onlyOne;
+      if (onlyOne) closeBtn.focus();
   }
 
   galleryItems.forEach((item) => {
@@ -196,6 +262,16 @@ function initLightbox() {
     if (lightbox.classList.contains("active")) {
       if (e.key === "Escape") {
         closeLightbox();
+        return;
+      }
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        step(-1);
+        return;
+      }
+      if (e.key === "ArrowRight") {
+        e.preventDefault();
+        step(1);
         return;
       }
       // Trap fokus: dialog modal harus menahan Tab di dalam dirinya.

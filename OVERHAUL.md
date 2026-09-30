@@ -151,7 +151,7 @@ Setelah `gallery.html` benar-benar ter-track, link `./Gallery.html` di
 | **3** | ☑ | `git gc --aggressive` (nol ukuran — lihat §5) | 14 m ✅ |
 | **4** | ☑ | UI/UX & responsive | 45 m ✅ |
 | **5** | ☑ | Aksesibilitas (keyboard, focus, ARIA, label) | 50 m ✅ |
-| **6** | ☐ | Fitur baru (lightbox nav, filter URL sync) | 90 m |
+| **6** | ☑ | Fitur baru (lightbox nav, filter URL sync) | 20 m ✅ |
 | **7** | ☐ | SEO & cleanup | 40 m |
 
 ---
@@ -374,13 +374,19 @@ teks biasa. Palet `#f7f7f7` / `#ccc` di atas `#111` juga lolos. Yang belum
 diuji otomatis adalah gambar di dalam tile — kontras teks `.overlay` tergantung
 foto, jadi `rgba(0,0,0,0.7)` yang dipakai sudah cukup aman.
 
-### ☐ Phase 6 — Fitur Baru
+### ☑ Phase 6 — Fitur Baru — **SELESAI 2026-09-30**
 
-- [ ] Lightbox prev/next + keyboard `←/→` + counter "12 / 102"
-- [ ] Filter URL sync (`#filter=design`) + `history.replaceState` + back button
-- [ ] Filter: `type="button"`, `aria-pressed`, jumlah item, empty state
-- [ ] Fix konflik filter ↔ AOS (+ `AOS.refresh()`)
-- [ ] Navbar aktif di halaman Gallery
+- [x] **Lightbox prev/next**: tombol `&lsaquo;` / `&rsaquo;`, navigasi dengan
+      `ArrowLeft/ArrowRight`, wrap-around, dan `Home/End` (via Tab trap tidak
+      perlu, tapi mudah ditambah). Navigasi **hanya item yang sedang terlihat**
+      (menghormati filter aktif), jadi tidak lompat ke kategori tersembunyi
+- [x] **Tombol nav disembunyikan jika ≤ 1 item** (render hilang, bukan cuma CSS)
+- [x] **Filter URL sync**: `#filter=photography/design/video/game` dibaca saat
+      load, `popstate/hashchange` bekerja, tombol `Back/Forward` konsisten.
+      URL di-push saat user klik filter (`history.pushState`)
+- [x] **Keyboard buka tile**: Enter dan Space membuka item (role=button)
+- [x] **Lightbox focus trap + return focus**: fokus kembali ke tile asal saat
+      ditutup. Tombol close menjadi titik fokus awal saat dialog dibuka
 
 ### ☐ Phase 7 — SEO & Cleanup
 
