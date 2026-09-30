@@ -146,8 +146,8 @@ Setelah `gallery.html` benar-benar ter-track, link `./Gallery.html` di
 |---|---|---|---|
 | **0** | ☑ | Amankan repo: `core.ignorecase`, commit baseline, tag, `.gitignore` | 5 m ✅ |
 | **1** | ☑ | P0: bug pemblokir (link case, `.btn`, video, asset 404) | 40 m ✅ |
-| **2** | ☐ | Optimasi gambar (thumbnail, compress, anti-CLS) | 30 m |
-| **3** | ☐ | `git gc --aggressive` | 15 m |
+| **2** | ☑ | Optimasi gambar (thumbnail, compress, anti-CLS) | 30 m ✅ |
+| **3** | ☑ | `git gc --aggressive` (nol ukuran — lihat §5) | 14 m ✅ |
 | **4** | ☐ | UI/UX & responsive | 90 m |
 | **5** | ☐ | Aksesibilitas | 60 m |
 | **6** | ☐ | Fitur baru (lightbox nav, filter URL sync) | 90 m |
@@ -202,23 +202,87 @@ menimpa `.btn` (dan membuat tombol tetap tak terlihat).
 `Asset/Home/About.webp` masih reported missing — **sengaja**, ada di dalam blok
 komentar `#about` (C1).
 
-### ☐ Phase 2 — Optimasi Gambar
+### ☑ Phase 2 — Optimasi Gambar — **SELESAI 2026-09-30** (commit `1a54a4b`)
 
-Tool tersedia: **ffmpeg 9.0.2**, **ImageMagick 7.1.2**, **Pillow 12.3 (WebP ✅)**
+Tool dipakai: **Pillow 12.3** (WebP ✅), ffmpeg 9.0.2, ImageMagick 7.1.2
 
-- [ ] Generate `Asset/Thumb/<struktur sama>/` — 600px wide, WebP q72
-- [ ] `gallery.html`: `src` → thumb; `data-src` tetap full (lightbox lazy-load)
-- [ ] `index.html` works grid → thumb + `alt` deskriptif (9 img kosong)
-- [ ] `Hero.webp`: varian mobile/compressed + `preload` + `fetchpriority="high"`
-- [ ] **Compress 24 aset unused (C2)** — bukan hapus
-- [ ] Tambah `width`/`height` di 102 `<img>` gallery → anti-CLS
-- [ ] Video 32 MB tetap (dibutuhkan); `poster` sudah ada
+| Item | Sebelum | Sesudah |
+|---|---|---|
+| Bobot `index.html` | ~30–50 MB | **0.81 MB** |
+| Bobot `gallery.html` | ~180 MB | **6.45 MB** |
+| `Asset/` | 210 MB | 193 MB |
+| `Asset/Thumb/` (baru) | — | 8.0 MB |
+| `src` → thumbnail | 0/116 | **116/116** |
+| `data-src` utuh (lightbox) | — | **96/96 terverifikasi** |
+| `<img>` tanpa dimensi | 102 | **0** |
+| `<img>` tanpa `alt` | 9 | **0** |
 
-### ☐ Phase 3 — Perbaikan `.git`
+- [x] `tools/make-thumbs.py` → `Asset/Thumb/` 800px, q72 (foto) / q80 (Design+Game)
+- [x] `tools/point-img-at-thumbs.py` → rewrite `src` saja, +`width`/`height`, +`alt`
+- [x] Hero: 1.3 MB 8000×6000 → varian **89 / 28 / 4 KB** + `preload` + `fetchpriority`
+- [x] Hero responsif via `@media` 1200px & 768px
+- [x] **Compress 11 foto tak tersaji** → arsip 1600px q82 (22.2 MB → 4.3 MB). File **tetap ada** (C2)
+- [x] Master `Hero.webp` **tidak** dikompres (varian diturunkan darinya)
+- [x] 5 master `Video/Thumb/` **tidak** dikompres
 
-- [ ] `git gc --aggressive --prune=now`
-- [ ] Catat ukuran sebelum/sesudah
-- [ ] ~~`git filter-repo`~~ **DIBATALKAN** (C3 — repo publik, history tidak boleh di-rewrite)
+#### Bug yang ditemukan & diperbaiki saat Phase 2
+
+1. **Thumbnail mendarat di `Asset/Thumb/Asset/...`** — `os.path.relpath(src, ROOT)`
+   menyertakan prefix `Asset/`. Diperbaiki → relatif terhadap `Asset/`.
+2. **6 video thumbnail ter-skip** — filter `"/Thumb/" not in path` ikut
+   mengecualikan `Asset/Gallery/Video/Thumb/` (nama foldernya memang `Thumb`).
+   Diperbaiki → hanya skip `Asset/Thumb/` hasil generate.
+3. **HTML rusak: `/>` terpisah** — `tag[:-1] + attrs + ">"` menghasilkan
+   `/> width="800" height="428">` pada 116 tag. Diperbaiki dengan
+   `insert_before_close()` yang membedakan `<img>` dan `<img />`.
+4. **⚠️ `data-src` lightbox sempat ter-compress** — regex referensi
+   `Asset/[^\s"')]+` terpotong di **spasi**, sehingga
+   `Asset/Gallery/Photography/Random Photo/1.webp` tidak terdeteksi
+   dan ikut di-downscale. **Asset di-revert via `git checkout`,** lalu
+   Approach diganti ke parser attribute (`(?:src|data-src|data-video-src)="([^"]+)"`)
+   + `urllib.parse.unquote`. Diverifikasi ulang: 96/96 original utuh (147.9 MB).
+5. Pengukuran fidelity awal salah (membandingkan gambar in-memory, bukan hasil
+   reload dari disk) sehingga quality 72 terlihat sempurna. Diperbaiki; lalu diuji ulang
+   dan ditemukan q=88
+   hanya menurunkan diff terburuk 6.80→5.25 dengan +78% ukuran, jadi ditolak.
+
+#### Keputusan tersisa (butuh persetujuan pemilik)
+
+**Full-size original lightbox masih 147.9 MB.** `.lightbox-content` hanya
+`max-width: 900px` + `max-height: 75vh`, jadi original 6000px praktis
+~7× lebih besar dari yang pernah ditampilkan. Menurunkan ke **2000px** akan
+memangkas ~100 MB tanpa perbedaan yang kasat mata — tapi ini keputusan
+kualitas, jadi belum dikerjakan. Lihat §9.
+
+### ☑ Phase 3 — Perbaikan `.git` — **SELESAI 2026-09-30** *(nol ukuran, tapi berhasil)*
+
+- [x] `git gc --aggressive --prune=now` → **13 m 50 d**
+- [x] Semua loose object terpaket: `count: 172 → 0`, `in-pack: 581 → 752`
+- [x] ~~`git filter-repo`~~ **DIBATALKAN** (C3 — repo publik, history tidak boleh di-rewrite)
+
+**Hasil: ukuran TIDAK turun — 1.8 GB → 1.8 GB.** Ini bukan kegagalan `gc`.
+
+| | |
+|---|---|
+| Working tree sekarang | **194 MB** |
+| Blob unik di seluruh history | **1.73 GB** (651 blob) |
+| → history mati (sudah tidak dirujuk) | **~1.54 GB** |
+
+`gc` hanya memaketkan & mendekompresi ulang. Ia **tidak bisa** menghapus blob
+yang benar-benar ada di commit lama. Itu definisi "history mati": file besar
+lama (`Video/A` 64 MB, `sinematik.mp4` 62.9 MB, `WinXP.png` 55.5 MB, dll)
+yang sudah tidak ada di working tree.
+
+**Konsekuensi praktis:** `git clone` repo ini ≈ 1.8 GB. GitHub Pages melakukan
+clone saat build, jadi tiap deploy mahal. `git push` juga mengunggah pack
+penuh setiap kali. Saat ini repo **tidak** bisa di-purge tanpa rewrite.
+
+**Opsi (semua butuh persetujuan pemilik — lihat §9):**
+1. Biarkan — berfungsi normal, tapi clone/build lambat.
+2. `git filter-repo` — paling efektif, tapi butuh **force-push** dan
+   merusak semua clone orang (C3).
+3. Orphan branch bersih (`git checkout --orphan`) — riwayat bersih, tapi
+   history lama tetap menempel di repo dan repo tetap 1.8 GB.
 
 ### ☐ Phase 4 — UI/UX & Responsive
 
