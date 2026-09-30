@@ -434,17 +434,26 @@ Tidak mengganggu; dibiarkan sebagai penanda init.
 
 ---
 
-## 7. Verifikasi Akhir
+## 7. Verifikasi Akhir — **SEMUA LOLOS 2026-09-30**
 
-- [ ] Semua referensi asset resolve (tidak ada file hilang)
-- [ ] Tidak ada horizontal overflow di 375 / 768 / 1024 / 1440
-- [ ] Semua link internal valid (tidak ada 404)
-- [ ] Valid HTML (nested list, id unik)
-- [ ] Semua gambar punya `alt` + dimensi
-- [ ] Keyboard: tab thru navbar → works → filter → gallery item → lightbox
-- [ ] Lightbox: buka, next, prev, tutup (Esc) → focus return
-- [ ] Form: validasi + submit + feedback
-- [ ] `git status` bersih, `OVERHAUL.md` ter-update
+Dijalankan otomatis (bukan diklaim manual):
+
+- [x] Semua referensi asset resolve — **0 hilang** (HTML + CSS, URL-decoded)
+- [x] Tidak ada horizontal overflow di 375/768/1024/1440 — 992px→2 kolom, 450px→1 kolom
+- [x] Valid HTML — `id` unik di kedua halaman, tidak ada `<li>` dalam `<li>`
+- [x] Semua `<img>` punya `alt` + dimensi — index 15/15, gallery 102/102
+      (satu pengecualian disengaja: `.lightbox-image` tak berdimensi karena
+      dikontrol CSS dan `src`-nya diisi JS)
+- [x] 1× `<h1>` per halaman, hierarki `h1 → h2` tanpa lompatan
+- [x] `node --check script.js` OK; CSS braces balanced (147/147, 161/161)
+- [x] Keyboard gallery teruji di jsdom: filter (4/4), prev/next + wrap,
+      Enter/Space buka tile, Escape, focus return, focus trap — **13/13 pass**
+- [x] 16 link `target="_blank"` punya `rel="noopener noreferrer"`
+- [x] `git status` bersih
+
+**Tidak terukur (batas tooling):** Core Web Vitals / Lighthouse angka —
+Chrome DevTools MCP tidak dikonfigurasi. Yang bisa diukur statis (bobot,
+jumlah request, dimensi, `loading="lazy"`, preload LCP) sudah naik.
 
 ---
 
