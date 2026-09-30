@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ["gallery filter", initGalleryFilter],
     ["lightbox", initLightbox],
     ["scroll-top", initScrollTopButton],
+    ["footer year", initFooterYear],
   ]) {
     try {
       fn();
@@ -21,12 +22,59 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+// --- Konfigurasi Animasi ---
+// Ubah hanya blok ini untuk mengatur seluruh animasi di site.
+//   enabled : false -> AOS.init({disable:true}) menghapus semua atribut
+//                      data-aos*, jadi seluruh animasi mati total.
+//   effect  : diterapkan ke tiap .gallery-item dari sini, jadi mengganti
+//             efek cukup ubah satu baris (tidak perlu edit 101 di HTML).
+//   duration / easing / delay / once : diteruskan ke AOS.init, yang
+//             menyalinnya ke body[data-aos-*] sehingga berlaku ke semua
+//             elemen tanpa perlu menulis atribut per elemen.
+const ANIMATION = {
+  enabled: true,
+  effect: "fade-up",
+  duration: 700,
+  easing: "ease-out",
+  delay: 0,
+  offset: 120,
+  once: true,
+};
+
 // --- Fungsi Inisialisasi AOS ---
 function initAOS() {
   AOS.init({
-    duration: 1000,
-    once: true,
+    disable: !ANIMATION.enabled,
+    duration: ANIMATION.duration,
+    easing: ANIMATION.easing,
+    delay: ANIMATION.delay,
+    offset: ANIMATION.offset,
+    once: ANIMATION.once,
   });
+
+  if (!ANIMATION.enabled) return;
+
+  const items = document.querySelectorAll(".gallery-item");
+  let changed = false;
+
+  items.forEach((item) => {
+    if (item.getAttribute("data-aos") !== ANIMATION.effect) {
+      item.setAttribute("data-aos", ANIMATION.effect);
+      changed = true;
+    }
+  });
+
+  if (changed) window.AOS.refreshHard();
+}
+
+// --- Tahun Copyright di Footer ---
+// Teks fallback tahun sudah ditulis di dalam elemen <span data-year>, jadi
+// kalau JavaScript gagal atau telat, footernya tetap menampilkan tahun.
+function initFooterYear() {
+  const year = String(new Date().getFullYear());
+  document
+    .querySelectorAll("[data-year]")
+    .forEach((el) => (el.textContent = year));
 }
 
 // --- Fungsi Scroll-to-Top Button (dipindah ke luar) ---
@@ -75,9 +123,24 @@ function initGalleryFilter() {
     galleryItems.forEach((item) => {
       const show = filterValue === "all" || item.getAttribute("data-category") === filterValue;
       item.style.display = show ? "block" : "none";
-      item.classList.toggle("hidden", !show);
-      item.classList.toggle("visible", show);
+      item.classList.toggle("is-filtered-out", !show);
     });
+
+    // AOS mengcache `position` setiap elemen SEKALI saat AOS.init(). Filter di
+    // atas mengubah layout (display:none -> grid menyusut), tapi MutationObserver
+    // AOS hanya memantau childList/removedNodes, BUKAN atribut style, jadi
+    // refresh() tidak pernah terpanggil otomatis.
+    //
+    // Akibatnya `o.in` (≈ absTop - innerHeight + offset) tile design tetap di
+    // angka lamanya: filter "design" hanya menyisakan 12 baris sehingga halaman
+    // cuma bisa di-scroll sampai ~4200px, sedangkan o.in tile design pertama
+    // masih ~5100px. Syarat scrollY >= o.in tidak akan pernah terpenuhi =>
+    // tile tetap opacity:0 DAN pointer-events:none selamanya.
+    //
+    // refresh() hitung ulang position lalu langsung jalankan handleScroll pada
+    // pageYOffset saat ini. `?.` wajib: AOS dari CDN, dan tanpa guard satu
+    // ReferenceError akan mematikan seluruh filter.
+    window.AOS?.refresh();
 
     if (pushUrl) {
       const url = filterValue === "all"
@@ -103,23 +166,6 @@ function initGalleryFilter() {
 
   window.addEventListener("hashchange", () => applyFilter(filterFromUrl()));
   window.addEventListener("popstate", () => applyFilter(filterFromUrl()));
-
-  const style = document.createElement("style");
-  style.textContent = `
-    .gallery-item {
-      transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-    }
-    .gallery-item.hidden {
-      opacity: 0;
-      transform: scale(0.9);
-    }
-    .gallery-item.visible {
-      opacity: 1;
-      transform: scale(1);
-    }
-  `;
-  document.head.appendChild(style);
-  galleryItems.forEach((item) => item.classList.add("visible"));
 }
 
 // --- Fungsi Lightbox ---
@@ -143,7 +189,7 @@ function initLightbox() {
   // Hanya item yang lolos filter yang boleh dinavigasi. Kalau tidak, user
   // menekan panah dan melompat ke kategori yang sedang disembunyikan.
   function visibleItems() {
-    return galleryItems.filter((el) => !el.classList.contains("hidden"));
+    return galleryItems.filter((el) => !el.classList.contains("is-filtered-out"));
   }
 
   function step(delta) {

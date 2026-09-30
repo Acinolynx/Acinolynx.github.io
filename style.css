@@ -28,6 +28,10 @@ h2 {
   font-size: clamp(25px, 3.5vw, 45px);
   font-weight: 500;
   line-height: 1.1;
+  /* Warna TIDAK didefinisikan di sini. Setiap h2 punya latar berbeda
+     (works gelap, contact terang, footer gelap), jadi warnanya di-scope per
+     area di bawah. Selector global dulu membuat heading contact & footer
+     salah warna. */
 }
 
 h4 {
@@ -251,6 +255,19 @@ p {
     background-image: url(Asset/Home/Hero-640.webp);
     background-position: center center;
   }
+
+  /* 3 kolom footer akan saling squeez di layar sempit, jadi turun jadi
+     1 kolom. Ditulis sebagai grid, bukan flex-direction. */
+  .copyrights {
+    grid-template-columns: 1fr;
+    justify-items: start;
+    gap: 0.6rem;
+  }
+
+  .copyrights > .box.copyrights-credit {
+    justify-self: start;
+    text-align: left;
+  }
 }
 
 /* Apply same animation to navbar links */
@@ -419,9 +436,21 @@ section .heading {
   padding: 2rem 0rem;
 }
 
-.bg-dark .heading h1 {
+.bg-dark .heading h1,
+.bg-dark .heading h2 {
   color: #f7f7f7;
   text-transform: capitalize;
+}
+
+/* Footer punya background #1b1b1b (lihat rule `footer`), jadi heading di
+   dalamnya harus terang, bukan gelap. */
+.main-footer h2 {
+  color: #f7f7f7;
+}
+
+/* Section contact tidak memakai .bg-dark -> latarnya terang. */
+.contact h2 {
+  color: #333333;
 }
 
 .bg-dark .heading p {
@@ -787,11 +816,32 @@ footer {
 .copyrights {
   width: 100%;
   margin: 0;
-  padding: 0;
   border-top: 1px solid #333333;
   padding: 0.5rem 6%;
-  display: flex;
-  justify-content: space-between;
+  /* 3 kolom: kiri | tengah | kanan. Grid (bukan flex space-between)
+     supaya kolom tengah benar-benar di tengah viewport walau teks kiri dan
+     lebar ikon kanan tidak sama panjang. */
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1rem;
+}
+
+.copyrights .box {
+  min-width: 0;
+}
+
+.copyrights > .box:first-child {
+  justify-self: start;
+}
+
+.copyrights > .box.copyrights-credit {
+  justify-self: center;
+  text-align: center;
+}
+
+.copyrights > .box:last-child {
+  justify-self: end;
 }
 
 .copyrights p {
@@ -803,6 +853,14 @@ footer {
   color: #f7f7f7;
   font-size: 16px;
   font-weight: 500;
+}
+
+/* Simbol hati dipakai karakter langsung (&#10084;) supaya tetap tampil
+   walau CDN font ikon gagal dimuat.
+   `inherit` (bukan hex) supaya warna hati otomatis mengikuti teksnya —
+   ganti satu warna di .copyrights p / .copyrights a, hati ikut berubah. */
+.copyrights .heart {
+  color: inherit;
 }
 
 .copyrights .social {

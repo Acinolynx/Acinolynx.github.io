@@ -334,15 +334,30 @@ footer {
   width: 100%;
   border-top: 1px solid #333333;
   padding: 1rem 6%;
-  display: flex;
-  justify-content: space-between;
+  /* 3 kolom: kiri | tengah | kanan. Grid (bukan flex space-between)
+     supaya kolom tengah benar-benar di tengah viewport walau teks kiri dan
+     lebar ikon kanan tidak sama panjang. */
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .copyrights .box {
   min-width: 0;
+}
+
+.copyrights > .box:first-child {
+  justify-self: start;
+}
+
+.copyrights > .box.copyrights-credit {
+  justify-self: center;
+  text-align: center;
+}
+
+.copyrights > .box:last-child {
+  justify-self: end;
 }
 
 .copyrights p {
@@ -358,6 +373,14 @@ footer {
 }
 .copyrights a:hover {
   text-decoration: underline;
+}
+
+/* Simbol hati dipakai karakter langsung (&#10084;) supaya tetap tampil
+   walau CDN font ikon gagal dimuat.
+   `inherit` (bukan hex) supaya warna hati otomatis mengikuti teksnya —
+   ganti satu warna di .copyrights p / .copyrights a, hati ikut berubah. */
+.copyrights .heart {
+  color: inherit;
 }
 
 .copyrights .social {
@@ -795,14 +818,19 @@ footer {
   } */
 
   .copyrights {
-    flex-direction: column; /* Tumpuk elemen secara vertikal */
+    /* Di layar sempit 3 kolom akan saling squeez, jadi turun jadi 1 kolom.
+       Ditulis ulang dari flex-direction karena .copyrights sekarang grid. */
+    grid-template-columns: 1fr;
+    justify-items: start; /* Ratakan semua baris ke kiri */
     gap: 0.8rem; /* Beri sedikit jarak antar elemen */
     padding: 1rem 4%; /* Padding for small devices */
-    align-items: flex-start; /* Ratakan container box ke kiri */
   }
   .copyrights .box {
     width: 100%; /* Pastikan box mengambil lebar penuh */
     text-align: left; /* Ratakan teks di dalam box ke kiri */
+  }
+  .copyrights > .box.copyrights-credit {
+    justify-self: start;
   }
   .copyrights .social {
     justify-content: flex-start; /* Ratakan ikon sosial ke kiri */

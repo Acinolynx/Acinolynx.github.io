@@ -420,6 +420,124 @@ Tidak mengganggu; dibiarkan sebagai penanda init.
 
 ---
 
+### ☑ Phase 8 — Fix Filter Gallery + Konfigurasi Animasi Terpusat — **SELESAI 2026-09-30**
+
+#### Gejala yang dilaporkan pemilik
+
+Masuk ke `gallery.html`, **langsung** klik filter (mis. Graphic Design)
+sebelum scroll → **blank, dan tetap blank walau sudah di-scroll sampai bawah**.
+Solusinya harus Jalan: `All` → scroll THROUGH seluruh halaman → scroll lagi ke
+atas → baru filter bisa dipakai.
+
+#### Akar masalah — terverifikasi terhadap `aos.js`/`aos.css` runtime
+
+Bukan `loading="lazy"`. Yang benar, dari kode minified AOS yang benar-benar
+dipakai (`unpkg.com/aos@next`):
+
+```js
+o.in = absTop - innerHeight + offset        // offset default 120
+animate  ⇔  scrollY >= o.in
+MutationObserver: { childList, subtree, removedNodes }   // ❌ tanpa `attributes`
+```
+
+AOS mengcache `position` setiap elemen **sekali** saat `AOS.init()`. Filter
+mengubah layout, tapi observer **tidak memantau atribut `style`**, jadi
+`refresh()` tidak pernah terpanggil otomatis.
+
+Aritmetikanya (101 item, urut `photography(52) → design(36) → video(5) → game(8)`,
+jadi item design pertama ada di **indeks 52** ≈ baris ke-18):
+
+| | posisi | `o.in` | scroll maks yg mungkin |
+|---|---|---|---|
+| filter **All** | design di absTop ≈ 5.785px | ≈ **5.105px** | — |
+| filter **design** → halaman tinggal ~5.660px | — | — | **≈ 4.860px** |
+
+`5.105 > 4.860` → syaratnya **tidak akan pernah terpenuhi**. Bug-nya permanen,
+bukan lambat — persis gejala yang dilaporkan.
+
+Tiga mekanisme yang bertumpuk:
+
+- [x] **Opasitas.** `html:not(.no-js) [data-aos^=fade][data-aos^=fade]` = (0,3,1)
+      mengalahkan `.gallery-item.visible` = (0,2,0) yang disuntik
+      `script.js`. Jadi blok style itu **dead code**.
+- [x] **Interaksi mati.** `[data-aos] { pointer-events: none }` = (0,1,0) →
+      tile yang belum ter-animate juga tidak bisa diklik/di-hover.
+- [x] `<html>` di kedua file **tanpa** class `no-js`, jadi CSS AOS aktif penuh;
+      tidak ada jalan keluar dari situ.
+
+#### Perbaikan
+
+- [x] `window.AOS?.refresh()` di akhir `applyFilter()` — hitung ulang `position`
+      lalu langsung jalankan `handleScroll` pada `pageYOffset` saat itu.
+      `?.` **wajib**: AOS dari CDN, tanpa guard satu `ReferenceError` mematikan
+      seluruh filter (kelas bug yang sudah pernah ditabaskan di `initAOS()`).
+- [x] **Config terpusat** `const ANIMATION = {...}` di `script.js` — `enabled`,
+      `effect`, `duration`, `easing`, `delay`, `offset`, `once`. `initAOS()`
+      meneruskannya ke `AOS.init()` dan menyamakan `data-aos` 101 tile dari
+      `ANIMATION.effect` (hanya memanggil `refreshHard()` bila benar-benar
+      berubah). Ganti efek = 1 baris; `enabled: false` = matikan total.
+- [x] **Nol perubahan di `gallery.html`** — 107 `data-aos` utuh, revert selalu
+      mungkin.
+- [x] **Dead code dibuang.** Blok style injeksi `.gallery-item.hidden/.visible`
+      + toggle class-nya dihapus; filter sekarang menandai
+      `.is-filtered-out` (konsisten dengan konvensi `is-filtered-*` di file
+      yang sama). `visibleItems()` di lightbox ikut menyesuaikan.
+      `display` inline **tetap** — itu yang benar-benar concealing.
+
+#### Footer — 3 kolom
+
+- [x] Kiri: `Copyrights @ <span data-year>2026</span> by Aci.`
+- [x] Tengah: `Made with ♥ by Aci`, "Aci" → `github.com/Acinolynx`.
+      Simbol hati pakai karakter langsung (`&#10084;`), **bukan** Font Awesome,
+      supaya tetap tampil kalau CDN font ikon gagal — konsisten dengan
+      pelajaran dari `initAOS()`. Warnanya `color: inherit` (bukan hex),
+      jadi persis sama dengan teks dan ikut berubah kalau palet diganti.
+- [x] Kanan: 4 ikon sosial **tidak disentuh** (verified identik di kedua halaman).
+- [x] `.copyrights` `flex; space-between` → **`grid-template-columns: 1fr auto 1fr`**
+      + `justify-self`, supaya kolom tengah benar-benar center walau lebar kiri
+      ≠ kanan. Rule flex lama di media query ditulis ulang jadi grid.
+- [x] `initFooterYear()` mengisi `data-year` tiap load; teks fallback tahun
+      ada di dalam elemen supaya tetap tampil kalau JS gagal.
+- [x] "Sy." → "Aci" di kiri (sekalian membersihkan `<a href="#">Sy.</a>` di
+      `gallery.html` yang menuju halaman kosong).
+
+#### Koreksi warna `h2` — penting, tidak sesuai dugaan awal
+
+Awalnya ada `h2 { color: #f7f7f7 }` global. Setelah inspeksi background,
+**`footer` punya `background-color: #1b1b1b`** — jadi heading di dalamnya harus
+**terang**. Kalau ikut disamakan jadi gelap, footer jadi gelap-di-atas-gelap
+(bug yang sama, terbalik).
+
+- [x] `h2` global **tidak** mendefinisikan warna lagi
+- [x] `.bg-dark .heading h1, .bg-dark .heading h2` → terang. **Ini sebab
+      aslinya**: aturan lama hanya menarget `h1`, sementara "My Works" sudah
+      berubah jadi `h2` sejak Phase 5, jadi tidak lagi kepicu.
+- [x] `.main-footer h2` → terang (`#f7f7f7`, mengikuti `footer` yang gelap)
+- [x] `.contact h2` → gelap (`#333`) — section ini tidak pakai `.bg-dark`
+- [x] Inline `style="color:#333333;"` di `index.html` dihapus
+
+#### Verifikasi Phase 8
+
+- [x] **Simulasi matematika AOS** (fungsi `o.in` disalin dari `aos.js`):
+      tanpa fix → **0/36** item design ter-animate di `scrollY=0` **dan** di
+      scroll-y maks; dengan fix → **3/36** langsung, **36/36** bisa dicapai
+      dengan scroll. Bug ternormalisasi, bukan diasumsikan.
+- [x] Wiring jsdom: `refresh()` dipanggil tepat saat filter berubah
+      (1→2), URL sync, `aria-pressed`, balik ke `All`, deep link
+      `#filter=design`, filter tetap hidup saat AOS/CDN mati (36 item).
+- [x] Regresi suite lama **13/13** (filter + lightbox wrap/visible-items).
+- [x] `node --check script.js` OK; kedua CSS parse OK via `css-tree`,
+      kurung balance 162/162 dan 164/164; seluruh selector `.copyrights` ada.
+- [x] 322 referensi aset lokal resolve. Satu-satunya yang "hilang"
+      (`Asset/Home/About.webp`) sudah dihapus sejak commit `69f8ba6` dan
+      berada di dalam blok `#about` yang dikomentari — bukan efek overhaul ini.
+- [x] 4 ikon sosial + 3 `.box` terverifikasi identik di kedua halaman.
+
+**Tidak berubah (sengaja):** `data-aos-delay` pada 5 tombol filter — itu
+animasi tombol chrome, bukan tile foto, dan bukan bagian bug ini.
+
+---
+
 ## 6. Catatan Keputusan
 
 | # | Keputusan | Alasan |
