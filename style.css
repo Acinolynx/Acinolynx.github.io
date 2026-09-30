@@ -159,7 +159,10 @@ p {
 }
 
 .header {
-  background-image: url(Asset/Home/Hero.webp);
+  /* Full-bleed hero. The original was a single 8000x6000 / 1.3 MB file
+     stretched across every viewport; these downscaled variants are
+     89 KB / 28 KB / 4 KB and are picked by width (see media queries). */
+  background-image: url(Asset/Home/Hero-1920.webp);
   height: 100vh;
   width: 100%;
   background-position: top left;
@@ -232,6 +235,21 @@ p {
 
 .works .btn::after {
   content: none; /* buang efek garis bawah link */
+}
+
+/* Responsif hero: gunakan varian yang lebih kecil di viewport sempit */
+
+@media (max-width: 1200px) {
+  .header {
+    background-image: url(Asset/Home/Hero-1280.webp);
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    background-image: url(Asset/Home/Hero-640.webp);
+    background-position: center center;
+  }
 }
 
 /* Apply same animation to navbar links */

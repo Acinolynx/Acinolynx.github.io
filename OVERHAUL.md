@@ -145,7 +145,7 @@ Setelah `gallery.html` benar-benar ter-track, link `./Gallery.html` di
 | Phase | Status | Isi | Estimasi |
 |---|---|---|---|
 | **0** | ☑ | Amankan repo: `core.ignorecase`, commit baseline, tag, `.gitignore` | 5 m ✅ |
-| **1** | ☐ | P0: bug pemblokir (link case, `.btn`, video, asset 404) | 40 m |
+| **1** | ☑ | P0: bug pemblokir (link case, `.btn`, video, asset 404) | 40 m ✅ |
 | **2** | ☐ | Optimasi gambar (thumbnail, compress, anti-CLS) | 30 m |
 | **3** | ☐ | `git gc --aggressive` | 15 m |
 | **4** | ☐ | UI/UX & responsive | 90 m |
@@ -176,21 +176,31 @@ Phase 0 karena tanpa itu `.gitignore` jadi tidak berguna. File tetap ada di disk
 
 **Status `.git`:** masih 1.8 GB — akan ditangani di Phase 3.
 
-### ☐ Phase 1 — P0: Bug PembLocker
+### ☑ Phase 1 — P0: Bug PembLocker — **SELESAI 2026-09-30** (commit `e7c5175`)
 
-| File:Line | Aksi |
-|---|---|
-| `index.html:26,156,236` | `./Gallery.html` → `./gallery.html` |
-| `style.css` | Tambah `.btn` **global**; rapikan rule scoped yang jadi duplikat |
-| `gallery.html:1592` | `<iframe class="lightbox-video">` → `<video controls playsinline>` |
-| `script.js:122-136` | Sesuaikan branch video; hapus logika iframe |
-| `gallery.html:199` | `Photography/Nature8.webp` → `Photography/Nature/8.webp` |
-| `gallery.html:1384` | `Video/Sine Hijab.webm` → `Video/Sine%20hijab.webm` |
-| `gallery.html:1356` | URL-encode `A%20Fishermen%27s%20Life.webm` |
-| `index.html:269`, `gallery.html:1583` | `<button><a></a></button>` → `<button><i></i></button>` |
+| File:Line | Aksi | Status |
+|---|---|---|
+| `index.html:26,156,236` | `./Gallery.html` → `./gallery.html` | ☑ 3 link |
+| `style.css` | Tambah `.btn` **global** + varian `.btn-light` / `.btn-dark` | ☑ |
+| `style.css` | Hapus `.header .box .btn` duplikat + efek garis bawah | ☑ |
+| `style.css` | `.works ul a` (spec 0,1,2) menimpa `.btn` (0,1,0) → dibersihkan | ☑ |
+| `index.html` | Tambah `btn-light` ke 5 tombol | ☑ |
+| `gallery.html:1592` | `<iframe>` → `<video controls playsinline preload="none">` | ☑ |
+| `script.js` | `src=""` → `removeAttribute` + `load()` + `play()`; `pause()` saat close | ☑ |
+| `gallery.html:199` | `Nature8.webp` → `Nature/8.webp` | ☑ |
+| `gallery.html:1356` | → `A%20Fishermen%27s%20Life.webm` | ☑ |
+| `gallery.html:1384` | → `Sine%20hijab.webm` | ☑ |
+| `index.html:269`, `gallery.html:1583` | `<button><a></a></button>` → `<button><i></i></button>` + `aria-label` | ☑ |
 
-> Catatan: footer `#about` (C1) **disisakan**, diberi komentar penanda agar sinkron
-> saat section di-uncomment nanti.
+**Verifikasi Phase 1:** semua asset ref resolve ✓ · 0 `Gallery.html` ✓ · 0 `<iframe>` ✓
+· `node --check script.js` OK ✓ · CSS braces seimbang (143/143, 140/140) ✓
+
+**Catatan:** `.btn` global memakai varian `.btn-light`/`.btn-dark` alih-alih menebak
+warna dari section — ini menghindari specificity war yang caused `.works ul a`
+menimpa `.btn` (dan membuat tombol tetap tak terlihat).
+
+`Asset/Home/About.webp` masih reported missing — **sengaja**, ada di dalam blok
+komentar `#about` (C1).
 
 ### ☐ Phase 2 — Optimasi Gambar
 
