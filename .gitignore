@@ -1,0 +1,42 @@
+# File "(old)" — versi lama, tidak dipakai tapi sengaja disimpan sebagai arsip
+*(old).html
+*(old).css
+*(old).js
+
+# OS / editor
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node (kalau nanti dipakai tooling)
+node_modules/
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Log & cache
+*.log
+.cache/
+.DS_Store
+
+# Env / secret ( precaution )
+.env
+.env.*
+!.env.example
+
+# Temporary
+tmp/
+temp/
+*.tmp
